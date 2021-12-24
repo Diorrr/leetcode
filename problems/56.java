@@ -1,3 +1,5 @@
+package problems;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -8,7 +10,7 @@ import java.util.List;
  * Time Complexity: O(N*logN)
  * Space Complexity：
  */
-class Solution {
+class Solution56 {
     public int[][] merge(int[][] intervals) {
         Arrays.sort(intervals, Comparator.comparingInt(t -> t[0]));
         List<int[]> result = new ArrayList<>();
@@ -32,6 +34,6 @@ class Solution {
 
     public static void main(String[] args) {
         int[][] intervals = {{1, 4}, {4, 5}};//{{1, 3}, {2, 6}, {8, 10}, {15, 18}};
-        System.out.println(Arrays.deepToString(new Solution().merge(intervals)));
+        System.out.println(Arrays.deepToString(new Solution56().merge(intervals)));
     }
 }
