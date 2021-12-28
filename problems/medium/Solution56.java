@@ -1,4 +1,4 @@
-package problems;
+package problems.medium;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -30,10 +30,5 @@ class Solution56 {
                 .forEach(result::add);
 
         return result.toArray(new int[0][]);
-    }
-
-    public static void main(String[] args) {
-        int[][] intervals = {{1, 4}, {4, 5}};//{{1, 3}, {2, 6}, {8, 10}, {15, 18}};
-        System.out.println(Arrays.deepToString(new Solution56().merge(intervals)));
     }
 }

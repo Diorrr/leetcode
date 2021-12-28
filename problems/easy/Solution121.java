@@ -1,4 +1,4 @@
-package problems;
+package problems.easy;
 
 /**
  * Problem: https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
@@ -35,10 +35,5 @@ class Solution121 {
             maxCurGlob = Math.max(maxCurGlob, maxCur);
         }
         return maxCurGlob;
-    }
-
-    public static void main(String[] args) {
-        int[] prices = {3, 2, 6, 5, 0, 3};
-        System.out.println(new Solution121().maxProfit(prices));
     }
 }

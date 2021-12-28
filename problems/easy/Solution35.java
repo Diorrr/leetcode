@@ -1,4 +1,4 @@
-package problems;
+package problems.easy;
 
 /**
  * Problem: https://leetcode.com/problems/search-insert-position/
@@ -20,10 +20,5 @@ class Solution35 {
             }
         }
         return r;
-    }
-
-    public static void main(String[] args) {
-        int[] nums = {1, 3, 5, 6};
-        System.out.println(new Solution35().searchInsert(nums, 2));
     }
 }

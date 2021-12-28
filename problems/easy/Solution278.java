@@ -1,4 +1,4 @@
-package problems;
+package problems.easy;
 
 /**
  * Problem: https://leetcode.com/problems/first-bad-version/
@@ -22,9 +22,5 @@ class Solution278 {
             }
             return (int) r;
         }
-    }
-
-    public static void main(String[] args) {
-        System.out.println(new Solution278().firstBadVersion(2126753390, 1702766719));
     }
 }
