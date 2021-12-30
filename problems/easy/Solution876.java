@@ -10,7 +10,7 @@ import java.util.Objects;
  * Space Complexity： (N)
  */
 class Solution876 {
-    public class ListNode {
+    private class ListNode {
         int val;
         ListNode next;
 

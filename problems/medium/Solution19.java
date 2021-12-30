@@ -12,7 +12,7 @@ import java.util.Objects;
 class Solution19 {
 
     //Definition for singly-linked list.
-    public class ListNode {
+    private class ListNode {
         int val;
         ListNode next;
 
@@ -103,9 +103,5 @@ class Solution19 {
         }
 
         return head;
-    }
-
-    public static void main(String[] args) {
-
     }
 }
