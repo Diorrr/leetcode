@@ -1,6 +1,4 @@
-package problems;
-
-import problems.easy.Solution203;
+package problems.easy;
 
 import java.util.ArrayList;
 import java.util.List;
