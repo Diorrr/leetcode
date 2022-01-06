@@ -5,7 +5,7 @@ import java.util.Queue;
 
 /**
  * Problem: https://leetcode.com/problems/01-matrix/
- * Time Complexity:
+ * Time Complexity: O(N*M)
  * Space Complexity：
  */
 class Solution542 {
