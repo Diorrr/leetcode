@@ -9,6 +9,61 @@ import java.util.Arrays;
  */
 class Solution977 {
     public int[] sortedSquares(int[] nums) {
+        if (nums.length == 1) {
+            nums[0] = nums[0] * nums[0];
+            return nums;
+        }
+        int[] res = new int[nums.length];
+        int pos = findPosition(nums);
+
+        res[0] = nums[pos] * nums[pos];
+        int lm = pos - 1, rm = pos + 1;
+        for (int i = 1; i < nums.length; i++) {
+            if (lm >= 0 && rm <= nums.length - 1) {
+                if (Math.abs(nums[lm]) < Math.abs(nums[rm])) {
+                    res[i] = nums[lm] * nums[lm];
+                    lm--;
+                } else {
+                    res[i] = nums[rm] * nums[rm];
+                    rm++;
+                }
+            } else if (lm >= 0) {
+                res[i] = nums[lm] * nums[lm];
+                lm--;
+            } else {
+                res[i] = nums[rm] * nums[rm];
+                rm++;
+            }
+        }
+        return res;
+    }
+
+    private int findPosition(int[] nums) {
+        int pos = -1;
+        int l = -1, r = nums.length, m;
+        while (l < r - 1) {
+            m = (l + r) / 2;
+            if (nums[m] == 0) {
+                pos = m;
+                break;
+            } else if (nums[m] < 0) {
+                l = m;
+                pos = m;
+            } else {
+                r = m;
+                pos = m;
+            }
+        }
+        if (pos + 1 < nums.length && Math.abs(nums[pos]) > Math.abs(nums[pos + 1])) {
+            return pos + 1;
+        }
+        if (pos - 1 >= 0 && Math.abs(nums[pos - 1]) < Math.abs(nums[pos])) {
+            return pos - 1;
+        }
+        return pos;
+    }
+
+    public int[] sortedSquares1(int[] nums) {
         int[] res = new int[nums.length];
         if (nums.length == 1) {
             res[0] = nums[0] * nums[0];
@@ -59,5 +114,10 @@ class Solution977 {
         }
         Arrays.sort(nums);
         return nums;
+    }
+
+    public static void main(String[] args) {
+        int[] array = {2, 3, 11};
+        System.out.println(new Solution977().findPosition(array));
     }
 }
