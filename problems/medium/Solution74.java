@@ -34,10 +34,4 @@ class Solution74 {
 
         return matrix[m1][m2] == target;
     }
-
-    public static void main(String[] args) {
-        int[][] matrix = {{1, 3}};
-        int target = 1;
-        System.out.println(new Solution74().searchMatrix(matrix, target));
-    }
 }
