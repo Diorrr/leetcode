@@ -115,9 +115,4 @@ class Solution977 {
         Arrays.sort(nums);
         return nums;
     }
-
-    public static void main(String[] args) {
-        int[] array = {2, 3, 11};
-        System.out.println(new Solution977().findPosition(array));
-    }
 }

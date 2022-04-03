@@ -36,9 +36,4 @@ class Solution557 {
             s.setCharAt(end--, t);
         }
     }
-
-    public static void main(String[] args) {
-        String s = "abc  abc a'asd";
-        System.out.println(new Solution557().reverseWords(s));
-    }
 }
