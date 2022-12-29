@@ -1,4 +1,4 @@
-package problems.easy;
+package problems.medium;
 
 /**
  * Problem: https://leetcode.com/problems/maximum-subarray/
