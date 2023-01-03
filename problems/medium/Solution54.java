@@ -14,9 +14,9 @@ class Solution54 {
         int m = matrix.length, n = matrix[0].length;
         int borderRight = n - 1, borderBottom = m - 1, borderLeft = 0, borderUp = 0;
         if (m == 1 || n == 1) {
-            for (int i = 0; i < matrix.length; i++) {
+            for (int[] ints : matrix) {
                 for (int j = 0; j < matrix[0].length; j++) {
-                    res.add(matrix[i][j]);
+                    res.add(ints[j]);
                 }
             }
             return res;
