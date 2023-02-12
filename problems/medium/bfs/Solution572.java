@@ -1,5 +1,7 @@
 package problems.medium.bfs;
 
+import util.TreeNode;
+
 import java.util.LinkedList;
 import java.util.Objects;
 import java.util.Queue;
@@ -10,26 +12,6 @@ import java.util.Queue;
  * Space Complexity：
  */
 class Solution572 {
-    //Definition for a binary tree node.
-    private class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode() {
-        }
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
-
     public boolean isSubtree(TreeNode root, TreeNode subRoot) {
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
