@@ -13,14 +13,14 @@ import java.util.stream.Collectors;
 class Solution378 {
     public int kthSmallest(int[][] matrix, int k) {
         int n = matrix[0].length;
-        int left = matrix[0][0], right = matrix[n - 1][n - 1] + 1;
-        while (left < right) {
+        int left = matrix[0][0], right = matrix[n - 1][n - 1];
+        while (left <= right) {
             int mid = left + (right - left) / 2;
             int count = count(matrix, mid);
             if (count < k) {
                 left = mid+1;
             } else {
-                right = mid;
+                right = mid-1;
             }
         }
 

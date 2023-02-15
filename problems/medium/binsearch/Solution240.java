@@ -54,8 +54,4 @@ class Solution240 {
 
         return false;
     }
-
-    public static void main(String[] args) {
-
-    }
 }
