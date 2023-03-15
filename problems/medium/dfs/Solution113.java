@@ -19,18 +19,18 @@ class Solution113 {
     }
 
     private void dfs(TreeNode root, Set<TreeNode> used, ArrayList<Integer> path, int targetSum, int sum, List<List<Integer>> result) {
-        if (Objects.nonNull(root)) {
+        if (root != null) {
             path.add(root.val);
             used.add(root);
             sum += root.val;
-            if (Objects.isNull(root.left) && Objects.isNull(root.right) && sum == targetSum) {
+            if (root.left == null && root.right == null && sum == targetSum) {
                 result.add(path);
             }
             if (!used.contains(root.left)) {
-                dfs(root.left, used, new ArrayList<Integer>(path), targetSum, sum, result);
+                dfs(root.left, used, new ArrayList<>(path), targetSum, sum, result);
             }
             if (!used.contains(root.right)) {
-                dfs(root.right, used, new ArrayList<Integer>(path), targetSum, sum, result);
+                dfs(root.right, used, new ArrayList<>(path), targetSum, sum, result);
             }
         }
     }
@@ -47,13 +47,13 @@ class Solution113 {
     private void dfs(TreeNode root, Stack<Integer> path, int targetSum, List<List<Integer>> result) {
         if (Objects.nonNull(root)) {
             path.push(root.val);
-            if (Objects.isNull(root.left) && Objects.isNull(root.right) && root.val == targetSum) {
-                result.add(new ArrayList<Integer>(path));
+            if (root.left == null && root.right == null && root.val == targetSum) {
+                result.add(new ArrayList<>(path));
             }
-            if (Objects.nonNull(root.left)) {
+            if (root.left != null) {
                 dfs(root.left, path, targetSum - root.val, result);
             }
-            if (Objects.nonNull(root.right)) {
+            if (root.right != null) {
                 dfs(root.right, path, targetSum - root.val, result);
             }
             path.pop();
