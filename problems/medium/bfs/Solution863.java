@@ -20,16 +20,16 @@ class Solution863 {
         fillGraph(root, graph);
         List<Integer> res = new ArrayList<>();
         int[] dist = new int[501];
-        Set<Integer> used = new HashSet<>();
+        int[] used = new int[501];
         Queue<Integer> queue = new LinkedList<>();
 
         queue.add(target.val);
-        used.add(target.val);
+        used[target.val] = 1;
         while (!queue.isEmpty()) {
             int curr = queue.poll();
             for (Integer to : graph.get(curr)) {
-                if (!used.contains(to)) {
-                    used.add(to);
+                if (used[to] == 0) {
+                    used[to] = 1;
                     queue.add(to);
                     dist[to] = dist[curr] + 1;
                     if (dist[to] == k) {
@@ -64,10 +64,5 @@ class Solution863 {
                 }
             }
         }
-    }
-
-    public static void main(String[] args) {
-        TreeNode root = Util.createFromArray(new Integer[]{3, 5, 1, 6, 2, 0, 8, null, null, 7, 4});
-        new Solution863().distanceK(root, root.left, 2);
     }
 }
