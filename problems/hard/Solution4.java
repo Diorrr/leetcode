@@ -33,7 +33,7 @@ class Solution4 {
 
     public double findMedianSortedArrays3(int[] nums1, int[] nums2) {
         List<Double> merged = Arrays.stream(nums1).mapToDouble(Double::valueOf).boxed().collect(Collectors.toList());
-        merged.addAll(Arrays.stream(nums2).mapToDouble(Double::valueOf).boxed().toList());
+        //merged.addAll(Arrays.stream(nums2).mapToDouble(Double::valueOf).boxed().toList());
         merged.sort(Double::compareTo);
 
         return merged.size() % 2 == 1 ? merged.get(merged.size() / 2) :
