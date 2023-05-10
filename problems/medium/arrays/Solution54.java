@@ -9,7 +9,26 @@ import java.util.List;
  * Space Complexity：
  */
 class Solution54 {
+    // 1100 is (not) magic number which is out of matrix range
     public List<Integer> spiralOrder(int[][] matrix) {
+        List<Integer> res = new ArrayList<>();
+        int[] dir = {0, 1, 1, 0, 0, -1, -1, 0};
+        int i = 0, j = 0;
+        int m = matrix.length, n = matrix[0].length;
+        int d = 0;
+        for (int k = 1; k <= m * n; k++) {
+            res.add(matrix[i][j]);
+            matrix[i][j] = 1100;
+            if (matrix[Math.floorMod(i + dir[d], m)][Math.floorMod(j + dir[d + 1], n)] == 1100) {
+                d = (d + 2) % 8;
+            }
+            i += dir[d];
+            j += dir[d + 1];
+        }
+        return res;
+    }
+
+    public List<Integer> spiralOrder2(int[][] matrix) {
         List<Integer> res = new ArrayList<>();
         int m = matrix.length, n = matrix[0].length;
         int borderRight = n - 1, borderBottom = m - 1, borderLeft = 0, borderUp = 0;
