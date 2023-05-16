@@ -19,8 +19,4 @@ class Solution1641 {
         }
         return Arrays.stream(all).sum();
     }
-
-    public static void main(String[] args) {
-        System.out.println(new Solution1641().countVowelStrings(3));
-    }
 }
