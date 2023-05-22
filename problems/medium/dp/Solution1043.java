@@ -15,7 +15,8 @@ class Solution1043 {
             dp[i + 1] = arr[i];
             for (int j = Math.max(0, i - k + 1); j <= i; j++) {
                 int max = Arrays.stream(arr, j, i + 1).max().getAsInt();
-                dp[i + 1] = Math.max(dp[i+1], dp[j] + max * (i - j + 1));
+                dp[i + 1] = Math.max(dp[i+1], dp[j] + max *
+                        (i - j + 1));
             }
         }
 
