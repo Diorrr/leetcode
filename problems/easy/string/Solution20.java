@@ -1,6 +1,8 @@
 package problems.easy.string;
 
-import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.Set;
 
 /**
  * Problem: <a href="https://leetcode.com/problems/valid-parentheses">
@@ -10,25 +12,55 @@ import java.util.Stack;
  */
 class Solution20 {
     public boolean isValid(String s) {
-        Stack<Character> stack = new Stack<>();
-        stack.add(s.charAt(0));
+        Deque<Character> deque = new ArrayDeque<>();
+        char[] chars = s.toCharArray();
+        if (chars[0] == ')' || chars[0] == '}' || chars[0] == ']') {
+            return false;
+        }
+        deque.add(chars[0]);
         for (int i = 1; i < s.length(); i++) {
-            char curr = s.charAt(i);
+            char curr = chars[i];
             if (curr == '(' || curr == '{' || curr == '[') {
-                stack.add(curr);
-            } else if (!stack.isEmpty()) {
-                char prev = stack.pop();
+                deque.add(curr);
+            } else if (!deque.isEmpty()) {
+                char prev = deque.removeLast();
                 if ((prev == '(' && curr != ')')
                         || (prev == '{' && curr != '}')
                         || (prev == '[' && curr != ']')) {
-                    return false;
-                } else if (prev == ')' || prev == '}' || prev == ']') {
                     return false;
                 }
             } else {
                 return false;
             }
         }
-        return stack.isEmpty();
+        return deque.isEmpty();
+    }
+
+    public boolean isValid2(String s) {
+        Deque<Character> deque = new ArrayDeque<>();
+        char[] chars = s.toCharArray();
+        Set<Character> openingSet = Set.of('(', '{', '[');
+        Set<Character> closingSet = Set.of(')', '}', ']');
+
+        if (closingSet.contains(chars[0])) {
+            return false;
+        }
+        deque.add(chars[0]);
+        for (int i = 1; i < s.length(); i++) {
+            char curr = chars[i];
+            if (openingSet.contains(curr)) {
+                deque.add(curr);
+            } else if (!deque.isEmpty()) {
+                char prev = deque.removeLast();
+                if ((prev == '(' && curr != ')')
+                        || (prev == '{' && curr != '}')
+                        || (prev == '[' && curr != ']')) {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        }
+        return deque.isEmpty();
     }
 }
