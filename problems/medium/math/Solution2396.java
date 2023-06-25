@@ -31,8 +31,4 @@ class Solution2396 {
         }
         return false;
     }
-
-    public static void main(String[] args) {
-        new Solution2396().isStrictlyPalindromic(5);
-    }
 }
