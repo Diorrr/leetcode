@@ -1,4 +1,4 @@
-package problems.easy;
+package problems.easy.array;
 
 /**
  * Problem: https://leetcode.com/problems/range-sum-query-immutable/

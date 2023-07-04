@@ -1,4 +1,4 @@
-package problems.easy;
+package problems.easy.dfs;
 
 /**
  * Problem: https://leetcode.com/problems/flood-fill/

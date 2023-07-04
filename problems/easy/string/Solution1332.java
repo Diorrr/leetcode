@@ -1,4 +1,4 @@
-package problems.easy;
+package problems.easy.string;
 
 /**
  * Problem: https://leetcode.com/problems/remove-palindromic-subsequences/

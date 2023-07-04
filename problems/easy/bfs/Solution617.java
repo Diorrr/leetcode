@@ -1,4 +1,6 @@
-package problems.easy;
+package problems.easy.bfs;
+
+import util.TreeNode;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -9,24 +11,6 @@ import java.util.Queue;
  * Space Complexity：
  */
 class Solution617 {
-    private class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode() {
-        }
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
 
     public TreeNode mergeTrees(TreeNode root1, TreeNode root2) {
         if (root1 == null || root2 == null) {

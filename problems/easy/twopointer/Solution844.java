@@ -1,7 +1,7 @@
-package problems.easy;
+package problems.easy.twopointer;
 
 /**
- * Problem: https://leetcode.com/problems/backspace-string-compare/submissions/
+ * Problem: https://leetcode.com/problems/backspace-string-compare
  * Time Complexity: O(N)
  * Space Complexity：O(1)
  */
