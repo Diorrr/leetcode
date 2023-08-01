@@ -1,5 +1,7 @@
 package problems.easy;
 
+import util.ListNode;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,24 +11,6 @@ import java.util.List;
  * Space Complexity： O(1) / O(N)
  */
 class Solution206 {
-    //Definition for singly-linked list.
-    private static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-    }
-
     public ListNode reverseList(ListNode head) {
         if (head == null || head.next == null) {
             return head;

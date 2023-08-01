@@ -1,5 +1,7 @@
 package problems.easy;
 
+import util.ListNode;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -10,24 +12,6 @@ import java.util.List;
  * Space Complexity：
  */
 class Solution21 {
-    //Definition for singly-linked list.
-    private static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-    }
-
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
         ListNode start = new ListNode();
         ListNode pred = new ListNode(-1, start);
@@ -85,6 +69,6 @@ class Solution21 {
             list.get(i - 1).next = list.get(i);
         }
 
-        return list.size() > 0 ? list.get(0) : null;
+        return list.isEmpty() ? null : list.get(0);
     }
 }

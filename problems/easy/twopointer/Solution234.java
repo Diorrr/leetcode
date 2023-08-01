@@ -1,4 +1,6 @@
-package problems.easy;
+package problems.easy.twopointer;
+
+import util.ListNode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,24 +11,6 @@ import java.util.List;
  * Space Complexity：
  */
 class Solution234 {
-    //Definition for singly-linked list.
-    private class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-    }
-
     public boolean isPalindrome(ListNode head) {
         if (head == null || head.next == null) {
             return true;
