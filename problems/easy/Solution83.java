@@ -1,5 +1,7 @@
 package problems.easy;
 
+import util.ListNode;
+
 import java.util.Objects;
 
 /**
@@ -8,24 +10,6 @@ import java.util.Objects;
  * Space Complexity： O(1)
  */
 class Solution83 {
-
-    private class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-    }
-
     public ListNode deleteDuplicates(ListNode head) {
         if (Objects.isNull(head) || Objects.isNull(head.next)) {
             return head;

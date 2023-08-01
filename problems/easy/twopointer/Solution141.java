@@ -1,4 +1,6 @@
-package problems.easy;
+package problems.easy.twopointer;
+
+import util.ListNode;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -9,16 +11,6 @@ import java.util.Set;
  * Space Complexity： O(1)
  */
 class Solution141 {
-    class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-            next = null;
-        }
-    }
-
     public boolean hasCycle(ListNode head) {
         if (head == null) {
             return false;
