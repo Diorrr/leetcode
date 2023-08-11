@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Problem: <a href="https://leetcode.com/problems/longest-arithmetic-subsequence-of-given-difference/">
- * problem</a>
+ * Problem: <a href="https://leetcode.com/problems/longest-arithmetic-subsequence-of-given-difference">
+ * longest-arithmetic-subsequence-of-given-difference</a>
  * Time Complexity:
  * Space Complexity：
  */
