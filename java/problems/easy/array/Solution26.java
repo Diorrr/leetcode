@@ -1,9 +1,8 @@
-package problems;
-
+package problems.easy.array;
 
 /**
- * Problem: <a href="link">
- * problem</a>
+ * Problem: <a href="https://leetcode.com/problems/remove-duplicates-from-sorted-array">
+ * remove-duplicates-from-sorted-array</a>
  * Time Complexity:
  * Space Complexity：
  */
@@ -25,9 +24,5 @@ class Solution26 {
         }
 
         return pos;
-    }
-
-    public static void main(String[] args) {
-        new Solution26().removeDuplicates(new int[]{0, 0, 1, 1, 1, 2, 2, 3, 3, 4});
     }
 }
