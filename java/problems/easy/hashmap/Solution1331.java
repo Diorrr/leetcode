@@ -21,7 +21,7 @@ class Solution1331 {
         HashMap<Integer, Integer> rank = new HashMap<>();
         Arrays.sort(copy);
         for (int num : copy) {
-            rank.putIfAbsent(num, rank.size());
+            rank.putIfAbsent(num, rank.size() + 1);
         }
         for (int i = 0; i < arr.length; i++) {
             arr[i] = rank.get(arr[i]);
