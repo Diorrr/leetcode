@@ -1,6 +1,5 @@
 package problems.medium.backtracking;
 
-
 import java.util.HashSet;
 
 /**
@@ -13,24 +12,20 @@ class Solution1593 {
     Integer res = 0;
 
     public int maxUniqueSplit(String s) {
-        backtrack(s, new HashSet<>());
+        backtrack(s.toCharArray(), new HashSet<>(), 0);
         return res;
     }
 
-    private void backtrack(String s, HashSet<Object> substringSet) {
+    private void backtrack(char[] s, HashSet<Object> substringSet, int pos) {
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < s.length(); i++) {
-            sb.append(s.charAt(i));
-            HashSet newSet = new HashSet(substringSet);
-            newSet.add(sb.toString());
-            res = Math.max(res, newSet.size());
-            backtrack(s.substring(i+1), newSet);
+        for (int i = pos; i < s.length; i++) {
+            sb.append(s[i]);
+            if (!substringSet.contains(sb.toString())) {
+                HashSet newSet = new HashSet(substringSet);
+                newSet.add(sb.toString());
+                res = Math.max(res, newSet.size());
+                backtrack(s, newSet, i + 1);
+            }
         }
-    }
-
-    public static void main(String[] args) {
-        System.out.println(
-                new Solution1593().maxUniqueSplit("ababccc")
-        );
     }
 }
