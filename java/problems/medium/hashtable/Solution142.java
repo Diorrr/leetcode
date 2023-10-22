@@ -1,4 +1,4 @@
-package problems.medium;
+package problems.medium.hashtable;
 
 import util.ListNode;
 
@@ -7,7 +7,8 @@ import java.util.Objects;
 import java.util.Set;
 
 /**
- * Problem: https://leetcode.com/problems/linked-list-cycle-ii/description/
+ * Problem: <a href="https://leetcode.com/problems/linked-list-cycle-ii">
+ * linked-list-cycle-ii</a>
  * Time Complexity:
  * Space Complexity：
  */

@@ -1,7 +1,8 @@
-package problems.medium;
+package problems.medium.arrays;
 
 /**
- * Problem:
+ * Problem: <a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown">
+ * best-time-to-buy-and-sell-stock-with-cooldown</a>
  * Time Complexity:
  * Space Complexity：
  */

@@ -1,9 +1,10 @@
-package problems.medium;
+package problems.medium.twopointer;
 
 import java.util.Arrays;
 
 /**
- * Problem: https://leetcode.com/problems/number-of-subsequences-that-satisfy-the-given-sum-condition/
+ * Problem: <a href="https://leetcode.com/problems/number-of-subsequences-that-satisfy-the-given-sum-condition">
+ * number-of-subsequences-that-satisfy-the-given-sum-condition</a>
  * Time Complexity:
  * Space Complexity：
  */
