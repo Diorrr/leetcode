@@ -10,6 +10,26 @@ package problems.medium.twopointer;
 class Solution1493 {
     public int longestSubarray(int[] nums) {
         int res = 0;
+        int start = 0;
+        int zeroCount = 1;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 0) {
+                zeroCount--;
+            }
+            while (zeroCount < 0) {
+                if (nums[start] == 0) {
+                    zeroCount++;
+                }
+                start++;
+            }
+            res = Math.max(res, i - start);
+        }
+
+        return res;
+    }
+
+    public int longestSubarray2(int[] nums) {
+        int res = 0;
         int l = 0;
         int r = 0;
         boolean isDeleted = false;
