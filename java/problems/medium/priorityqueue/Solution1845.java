@@ -12,8 +12,30 @@ import java.util.PriorityQueue;
 class Solution1845 {
     class SeatManager {
         PriorityQueue<Integer> queue;
+        int last;
 
         public SeatManager(int n) {
+            queue = new PriorityQueue<>(n);
+            last = 0;
+        }
+
+        public int reserve() {
+            return queue.isEmpty() ? ++last : queue.poll();
+        }
+
+        public void unreserve(int seatNumber) {
+            if (seatNumber == last) {
+                last--;
+            } else {
+                queue.add(seatNumber);
+            }
+        }
+    }
+
+    class SeatManager2 {
+        PriorityQueue<Integer> queue;
+
+        public SeatManager2(int n) {
             queue = new PriorityQueue<>(n);
             for (int i = 1; i <= n; i++) {
                 queue.add(i);
