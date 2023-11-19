@@ -10,7 +10,41 @@ import java.util.*;
  * Space Complexity：
  */
 class Solution239 {
+    int[] t;
+
     public int[] maxSlidingWindow(int[] nums, int k) {
+        int n = nums.length;
+        t = new int[4 * n];
+        int[] res = new int[n - k + 1];
+        build(nums, 1, 0, n - 1);
+        for (int i = k - 1; i < n; i++) {
+            res[i - k + 1] = findMax(1, 0, n - 1, i - k + 1, i);
+        }
+        return res;
+    }
+
+    private int findMax(int v, int tl, int tr, int l, int r) {
+        if (l > r)
+            return 0;
+        if (l == tl && r == tr)
+            return t[v];
+        int tm = (tl + tr) / 2;
+        return Math.max(findMax(v * 2, tl, tm, l, Math.min(r, tm)),
+                findMax(v * 2 + 1, tm + 1, tr, Math.max(l, tm + 1), r));
+    }
+
+    private void build(int[] nums, int v, int tl, int tr) {
+        if (tl == tr) {
+            t[v] = nums[tl];
+        } else {
+            int tm = (tl + tr) / 2;
+            build(nums, v * 2, tl, tm);
+            build(nums, v * 2 + 1, tm + 1, tr);
+            t[v] = Math.max(t[v * 2], t[v * 2 + 1]);
+        }
+    }
+
+    public int[] maxSlidingWindow1(int[] nums, int k) {
         PriorityQueue<int[]> queue = new PriorityQueue<>(
                 (a, b) -> a[0] != b[0] ? Integer.compare(b[0], a[0]) : Integer.compare(a[1], b[1])
         );
