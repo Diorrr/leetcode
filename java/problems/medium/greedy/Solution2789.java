@@ -19,8 +19,4 @@ class Solution2789 {
 
         return sum;
     }
-
-    public static void main(String[] args) {
-
-    }
 }

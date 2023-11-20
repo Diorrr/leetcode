@@ -1,4 +1,4 @@
-package problems.medium.arrays;
+package problems.medium.prefixsum;
 
 
 import java.util.HashMap;
