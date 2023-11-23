@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Problem: <a href="link">
- * problem</a>
+ * Problem: <a href="https://leetcode.com/problems/arithmetic-subarrays">
+ * arithmetic-subarrays</a>
  * Time Complexity:
  * Space Complexity：
  */
