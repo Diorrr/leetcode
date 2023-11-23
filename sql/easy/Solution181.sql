@@ -1,5 +1,4 @@
-#
-Write your MySQL query statement below
+# Write your MySQL query statement below
 # https://leetcode.com/problems/employees-earning-more-than-their-managers
 SELECT name as 'Employee'
 FROM Employee e1

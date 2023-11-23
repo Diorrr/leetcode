@@ -20,10 +20,10 @@ class Solution1814 {
             countPairs.put(diff, countPairs.getOrDefault(diff, 0) + 1);
         }
         for (Integer count : countPairs.values()) {
-            res = (res % mod + ((long) count * (count - 1)) / 2) % mod;
+            res = (res + ((long) count * (count - 1)) / 2) % mod;
         }
 
-        return (int) res % mod;
+        return (int) res;
     }
 
     private int rev(int num) {
