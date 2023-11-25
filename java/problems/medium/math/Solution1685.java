@@ -1,4 +1,4 @@
-package problems;
+package problems.medium.math;
 
 /**
  * Problem: <a href="https://leetcode.com/problems/sum-of-absolute-differences-in-a-sorted-array">
