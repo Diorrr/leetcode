@@ -43,6 +43,6 @@ class Solution1814 {
             rev[rev.length - 1 - i] = t;
         }
 
-        return num - Integer.valueOf(new String(rev));
+        return num - Integer.parseInt(new String(rev));
     }
 }
