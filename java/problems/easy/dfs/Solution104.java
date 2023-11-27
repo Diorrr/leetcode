@@ -1,18 +1,30 @@
-package problems.easy;
+package problems.easy.dfs;
 
 import util.TreeNode;
 
 import java.util.*;
 
 /**
- * Problem: https://leetcode.com/problems/maximum-depth-of-binary-tree/
+ * Problem: <a href="https://leetcode.com/problems/maximum-depth-of-binary-tree">
+ * maximum-depth-of-binary-tree</a>
  * Time Complexity:
  * Space Complexity：
  */
 class Solution104 {
+    public int maxDepth(TreeNode root) {
+        return dfs(root, 1);
+    }
+
+    private int dfs(TreeNode root, int depth) {
+        if (root == null) {
+            return depth - 1;
+        }
+        return Math.max(dfs(root.left, depth + 1), dfs(root.right, depth + 1));
+    }
+
     private Integer maxDepth = 0;
 
-    public int maxDepth(TreeNode root) {
+    public int maxDepth2(TreeNode root) {
         bfs(root);
 
         return maxDepth;
@@ -26,10 +38,10 @@ class Solution104 {
         Map<TreeNode, Integer> dist = new HashMap<>();
         dist.put(root, 1);
 
-        while (!queue.isEmpty()){
+        while (!queue.isEmpty()) {
             TreeNode node = queue.remove();
-            if (Objects.nonNull(node)){
-                if (Objects.isNull(node.left) && Objects.isNull(node.right)){
+            if (node != null) {
+                if (node.left == null && node.right == null) {
                     maxDepth = Math.max(maxDepth, dist.get(node));
                 } else {
                     if (!used.contains(node.left)) {
