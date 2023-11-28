@@ -5,7 +5,8 @@ import util.TreeNode;
 import java.util.Objects;
 
 /**
- * Problem: https://leetcode.com/problems/diameter-of-binary-tree/
+ * Problem: <a href="https://leetcode.com/problems/">
+ * diameter-of-binary-tree</a>
  * Time Complexity:
  * Space Complexity：
  */
@@ -18,7 +19,7 @@ class Solution543 {
     }
 
     private int max(TreeNode node) {
-        if (Objects.isNull(node)) {
+        if (node == null) {
             return 0;
         }
 
