@@ -14,6 +14,25 @@ import java.util.Queue;
  */
 class Solution101 {
     public boolean isSymmetric(TreeNode root) {
+        if (root == null) {
+            return true;
+        }
+
+        return compareNode(root.left, root.right);
+    }
+
+    private boolean compareNode(TreeNode left, TreeNode right) {
+        if (left != null && right != null) {
+            if (left.val != right.val) {
+                return false;
+            }
+            return compareNode(left.left, right.right) && compareNode(left.right, right.left);
+        }
+
+        return left == null && right == null;
+    }
+
+    public boolean isSymmetric2(TreeNode root) {
         Queue<TreeNode> leftQueue = new LinkedList<>();
         Queue<TreeNode> rightQueue = new LinkedList<>();
         if (root != null) {
