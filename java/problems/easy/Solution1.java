@@ -1,6 +1,8 @@
 package problems.easy;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Problem: https://leetcode.com/problems/two-sum/
@@ -9,6 +11,21 @@ import java.util.Arrays;
  */
 class Solution1 {
     public int[] twoSum(int[] nums, int target) {
+        int[] res = new int[2];
+        Map<Integer, Integer> numsToIndex = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            numsToIndex.put(nums[i], i);
+            if (numsToIndex.get(target - nums[i]) != null) {
+                res[0] = i;
+                res[1] = numsToIndex.get(target - nums[i]);
+                return res;
+            }
+        }
+
+        return res;
+    }
+
+    public int[] twoSum2(int[] nums, int target) {
         int[] res = new int[2];
         int[] copy = Arrays.copyOf(nums, nums.length);
         int first = 0, second = 0;

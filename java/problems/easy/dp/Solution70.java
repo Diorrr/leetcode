@@ -1,9 +1,10 @@
 package problems.easy.dp;
 
 /**
- * Problem: https://leetcode.com/problems/climbing-stairs/
- * Time Complexity: O(N)
- * Space Complexity： O(N)
+ * Problem: <a href="https://leetcode.com/problems/climbing-stairs">
+ * climbing-stairs</a>
+ * Time Complexity:
+ * Space Complexity：
  */
 class Solution70 {
     public int climbStairs(int n) {
@@ -21,17 +22,13 @@ class Solution70 {
     public int climbStairs2(int n) {
         int stepOne = 1;
         int stepTwo = 2;
-        int stepN = 0;
-        if (n == 1) {
-            return stepOne;
-        } else if (n == 2) {
-            return stepTwo;
-        }
+        int stepN = n;
         for (int i = 3; i <= n; i++) {
             stepN = stepOne + stepTwo;
             stepOne = stepTwo;
             stepTwo = stepN;
         }
+
         return stepN;
     }
 }
