@@ -7,12 +7,48 @@ import java.util.Comparator;
 import java.util.List;
 
 /**
- * Problem: https://leetcode.com/problems/merge-two-sorted-lists/
+ * Problem: <a href="https://leetcode.com/problems/merge-two-sorted-lists">
+ * merge-two-sorted-lists"</a>
  * Time Complexity: O(N)
  * Space Complexity：
  */
 class Solution21 {
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+        if (list1 == null && list2 == null) {
+            return null;
+        }
+        ListNode start = new ListNode();
+        ListNode pred = new ListNode(-1, start);
+        sortNodes(start, list1, list2);
+
+        return pred.next;
+    }
+
+    private void sortNodes(ListNode start, ListNode list1, ListNode list2) {
+        if (list1 != null && list2 == null) {
+            start.val = list1.val;
+            start.next = list1.next;
+        } else if (list1 == null && list2 != null) {
+            start.val = list2.val;
+            start.next = list2.next;
+        } else if (list1 != null && list2 != null) {
+            if (list1.val < list2.val) {
+                start.val = list1.val;
+                list1 = list1.next;
+            } else {
+                start.val = list2.val;
+                list2 = list2.next;
+            }
+            if (list1 == null && list2 == null) {
+                start.next = null;
+            } else {
+                start.next = new ListNode();
+                sortNodes(start.next, list1, list2);
+            }
+        }
+    }
+
+    public ListNode mergeTwoLists1(ListNode list1, ListNode list2) {
         ListNode start = new ListNode();
         ListNode pred = new ListNode(-1, start);
         if (list1 != null && list2 != null) {
