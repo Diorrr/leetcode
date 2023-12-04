@@ -1,10 +1,13 @@
 package problems.medium.backtracking;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 /**
- * Problem: https://leetcode.com/problems/generate-parentheses/description/
+ * Problem: <a href="https://leetcode.com/problems/generate-parentheses">
+ * generate-parentheses</a>
  * Time Complexity:
  * Space Complexity：
  */
@@ -16,16 +19,46 @@ class Solution22 {
         return res;
     }
 
-    private void backtrack(int n, String s, int openPrn, int closedPrn) {
-        if (openPrn == n && closedPrn == n) {
+    private void backtrack(int n, String s, int open, int close) {
+        if (open == n && close == n) {
             res.add(s);
-        } else {
-            if (openPrn < n) {
-                backtrack(n, s + "(", openPrn + 1, closedPrn);
+            return;
+        }
+        if (open < n) {
+            backtrack(n, s + "(", open + 1, close);
+        }
+        if (open > close) {
+            backtrack(n, s + ")", open, close + 1);
+        }
+    }
+
+    public List<String> generateParenthesis1(int n) {
+        List<String> res = new ArrayList<>();
+        Queue<String> queue = new LinkedList<>();
+        Queue<Integer> openClose = new LinkedList<>();
+        queue.add("");
+        openClose.add(0);
+        openClose.add(0);
+
+        while (!queue.isEmpty()) {
+            int open = openClose.poll();
+            int close = openClose.poll();
+            String s = queue.poll();
+            if (open == n && close == n) {
+                res.add(s);
             }
-            if (openPrn - closedPrn > 0) {
-                backtrack(n, s + ")", openPrn, closedPrn + 1);
+            if (open < n) {
+                queue.add(s + "(");
+                openClose.add(open + 1);
+                openClose.add(close);
+            }
+            if (open > close) {
+                queue.add(s + ")");
+                openClose.add(open);
+                openClose.add(close + 1);
             }
         }
+
+        return res;
     }
 }
