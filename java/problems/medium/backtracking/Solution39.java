@@ -50,9 +50,4 @@ class Solution39 {
             }
         }
     }
-
-    public static void main(String[] args) {
-        var res = new Solution39().combinationSum(new int[]{2, 3, 6, 7}, 7);
-        System.out.println();
-    }
 }
