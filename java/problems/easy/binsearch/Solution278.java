@@ -1,7 +1,8 @@
 package problems.easy.binsearch;
 
 /**
- * Problem: https://leetcode.com/problems/first-bad-version/
+ * Problem: <a href="https://leetcode.com/problems/first-bad-version">
+ * first-bad-version</a>
  * Time Complexity: O(logN)
  * Space Complexity： O(1)
  */
@@ -11,16 +12,16 @@ class Solution278 {
             return 1;
         } else {
             long l = 0, r = n;
-            long m;
-            while (l < r - 1) {
-                m = (l + r) / 2;
-                if (m>target){//isBadVersion((int) m)) {
-                    r = m;
+            long mid;
+            while (l <= r) {
+                mid = (l + r) / 2;
+                if (mid > target) {//isBadVersion((int)mid)) {
+                    r = mid - 1;
                 } else {
-                    l = m;
+                    l = mid + 1;
                 }
             }
-            return (int) r;
+            return (int) l;
         }
     }
 }

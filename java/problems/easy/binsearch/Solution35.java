@@ -8,6 +8,7 @@ import java.util.Arrays;
  * Time Complexity: O(logN)
  * Space Complexity：O(1)
  */
+
 class Solution35 {
     public int searchInsert(int[] nums, int target) {
         int pos = Arrays.binarySearch(nums, target);
@@ -15,18 +16,18 @@ class Solution35 {
     }
 
     public int searchInsert2(int[] nums, int target) {
-        int l = -1, r = nums.length;
-        int m;
-        while (l < r - 1) {
-            m = (l + r) / 2;
-            if (nums[m] == target) {
-                return m;
-            } else if (nums[m] < target) {
-                l = m;
+        int l = 0;
+        int r = nums.length - 1;
+        while (l <= r) {
+            int mid = (r + l) / 2;
+            if (nums[mid] == target) {
+                return mid;
+            } else if (nums[mid] < target) {
+                l = mid + 1;
             } else {
-                r = m;
+                r = mid - 1;
             }
         }
-        return r;
+        return l;
     }
 }
