@@ -12,19 +12,20 @@ class Solution131 {
     List<List<String>> res = new ArrayList<>();
 
     public List<List<String>> partition(String s) {
-        backtrack(s, 0, new ArrayList<String>());
+        backtrack(s, 0, new ArrayList<>());
         return res;
     }
 
     private void backtrack(String original, int index, List<String> strings) {
-        if (index + 1 > original.length()) {
+        if (index == original.length()) {
             res.add(strings);
         } else if (index < original.length()) {
-            for (int i = 1; index + i <= original.length(); i++) {
-                if (isPalindrome(original.substring(index, index + i))) {
+            for (int i = index + 1; i <= original.length(); i++) {
+                String substr = original.substring(index, i);
+                if (isPalindrome(substr)) {
                     List<String> temp = new ArrayList<>(strings);
-                    temp.add(original.substring(index, index + i));
-                    backtrack(original, index + i, temp);
+                    temp.add(substr);
+                    backtrack(original, i, temp);
                 }
             }
         }
@@ -32,11 +33,11 @@ class Solution131 {
 
     private boolean isPalindrome(String s) {
         int left = 0, right = s.length() - 1;
-        while(left <= right) {
-            if(s.charAt(left) != s.charAt(right))
+        while (left <= right) {
+            if (s.charAt(left) != s.charAt(right))
                 return false;
-            left ++;
-            right --;
+            left++;
+            right--;
         }
         return true;
     }

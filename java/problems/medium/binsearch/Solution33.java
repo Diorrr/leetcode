@@ -24,28 +24,23 @@ class Solution33 {
             }
         }
         l = binSearch(nums, target, 0, m);
-        r = binSearch(nums, target, m, nums.length);
+        r = binSearch(nums, target, m, nums.length - 1);
 
 
         return Math.max(l, r);
     }
 
     private int binSearch(int[] nums, int target, int l, int r) {
-        int m;
-        while (l < r - 1) {
-            m = (l + r) / 2;
+        while (l <= r) {
+            int m = (l + r) / 2;
             if (nums[m] == target) {
                 return m;
             }
             if (nums[m] < target) {
-                l = m;
+                l = m + 1;
             } else {
-                r = m;
+                r = m - 1;
             }
-        }
-        m = (l + r) / 2;
-        if (nums[m] == target) {
-            return m;
         }
 
         return -1;
