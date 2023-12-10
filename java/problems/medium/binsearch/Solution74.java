@@ -1,7 +1,8 @@
 package problems.medium.binsearch;
 
 /**
- * Problem: https://leetcode.com/problems/search-a-2d-matrix/
+ * Problem: <a href="https://leetcode.com/problems/search-a-2d-matrix">
+ * search-a-2d-matrix</a>
  * Time Complexity: O(logN)
  * Space Complexity： O(1)
  */
@@ -12,9 +13,12 @@ class Solution74 {
         } else if (matrix.length == 1 && matrix[0].length == 1) {
             return matrix[0][0] == target;
         }
-        int n = matrix.length, k = matrix[0].length, m;
-        int l = 0, r = n * k, m1, m2;
-        while (l < r - 1) {
+        int n = matrix.length;
+        int k = matrix[0].length;
+        int m, m1, m2;
+        int l = 0;
+        int r = n * k - 1;
+        while (l <= r) {
             m = (l + r) / 2;
             m1 = m / k;
             m2 = m % k;
@@ -23,9 +27,9 @@ class Solution74 {
             }
 
             if (matrix[m1][m2] < target) {
-                l = m;
+                l = m + 1;
             } else {
-                r = m;
+                r = m - 1;
             }
         }
         m = (l + r) / 2;
