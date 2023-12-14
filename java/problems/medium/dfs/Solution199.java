@@ -5,7 +5,8 @@ import util.TreeNode;
 import java.util.*;
 
 /**
- * Problem: https://leetcode.com/problems/binary-tree-right-side-view/
+ * Problem: <a href="https://leetcode.com/problems/binary-tree-right-side-view">
+ * binary-tree-right-side-view</a>
  * Time Complexity:
  * Space Complexity：
  */
@@ -18,7 +19,7 @@ class Solution199 {
     }
 
     private void search(List<Integer> res, int depth, TreeNode root) {
-        if (Objects.isNull(root)) {
+        if (root == null) {
             return;
         }
         if (res.size() == depth) {
