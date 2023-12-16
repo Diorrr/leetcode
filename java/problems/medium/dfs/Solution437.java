@@ -2,12 +2,13 @@ package problems.medium.dfs;
 
 import util.TreeNode;
 
-import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
- * Problem: https://leetcode.com/problems/path-sum-iii/description/
+ * Problem: <a href="https://leetcode.com/problems/path-sum-iii">
+ * path-sum-iii</a>
  * Time Complexity:
  * Space Complexity：
  */
@@ -15,23 +16,39 @@ class Solution437 {
     int res = 0;
 
     public int pathSum(TreeNode root, int targetSum) {
-        dfs(root, new ArrayList<>(), BigInteger.valueOf(targetSum));
+        HashMap<Long, Long> preSum = new HashMap<>();
+        preSum.put(0L, 1L);
+        dfs(root, 0L, targetSum, preSum);
         return res;
     }
 
-    private void dfs(TreeNode root, ArrayList<BigInteger> possibleSums, BigInteger targetSum) {
+    private void dfs(TreeNode root, long currSum, int targetSum, HashMap<Long, Long> preSum) {
         if (root != null) {
-            List<BigInteger> newSums = new ArrayList<>();
-            possibleSums.forEach(t -> newSums.add(t.add(BigInteger.valueOf(root.val))));
-            for (BigInteger newSum : newSums) {
-                if (newSum.equals(targetSum)) {
+            currSum += root.val;
+            res += preSum.getOrDefault(currSum - targetSum, 0L);
+            preSum.put(currSum, preSum.getOrDefault(currSum, 0L) + 1);
+
+            dfs(root.left, currSum, targetSum, preSum);
+            dfs(root.right, currSum, targetSum, preSum);
+
+            preSum.put(currSum, preSum.get(currSum) - 1);
+        }
+    }
+
+    public int pathSum1(TreeNode root, int targetSum) {
+        dfs(root, new ArrayList<>(), targetSum);
+        return res;
+    }
+
+    private void dfs(TreeNode root, ArrayList<Long> possibleSums, int targetSum) {
+        if (root != null) {
+            List<Long> newSums = new ArrayList<>();
+            possibleSums.add(0L);
+            possibleSums.forEach(t -> newSums.add(t + root.val));
+            for (Long newSum : newSums) {
+                if (newSum == targetSum) {
                     res++;
                 }
-            }
-
-            newSums.add(BigInteger.valueOf(root.val));
-            if (targetSum.equals(BigInteger.valueOf(root.val))) {
-                res++;
             }
 
             dfs(root.left, new ArrayList<>(newSums), targetSum);
