@@ -1,7 +1,8 @@
 package problems.medium.dp;
 
 /**
- * Problem: https://leetcode.com/problems/maximum-product-subarray/description/
+ * Problem: <a href="https://leetcode.com/problems/maximum-product-subarray">
+ * maximum-product-subarray</a>
  * Time Complexity: O(n)
  * Space Complexity：O(1)
  */
@@ -15,7 +16,6 @@ class Solution152 {
             rightProd = (rightProd == 0 ? 1 : rightProd) * nums[nums.length - 1 - i];
             max = Math.max(max, Math.max(leftProd, rightProd));
         }
-
 
         return max;
     }
