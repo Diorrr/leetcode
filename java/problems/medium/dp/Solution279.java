@@ -20,8 +20,4 @@ class Solution279 {
 
         return dp[n];
     }
-
-    public static void main(String[] args) {
-
-    }
 }

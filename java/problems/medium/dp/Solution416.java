@@ -3,7 +3,8 @@ package problems.medium.dp;
 import java.util.Arrays;
 
 /**
- * Problem: https://leetcode.com/problems/partition-equal-subset-sum/description/
+ * Problem: <a href="https://leetcode.com/problems/partition-equal-subset-sum">
+ * partition-equal-subset-sum</a>
  * Time Complexity:
  * Space Complexity：
  */
@@ -21,22 +22,20 @@ class Solution416 {
             }
         }
 
-        for (int i = 0; i < nums.length; i++) {
+        for (int i = 1; i < nums.length; i++) {
             for (int j = 0; j <= sum / 2; j++) {
-                if (i - 1 >= 0 && dp[i - 1][j] == 1) {
+                if (dp[i - 1][j] == 1) {
                     dp[i][j] = 1;
                     if (j + nums[i] <= sum / 2) {
                         dp[i][j + nums[i]] = 1;
+                    }
+                    if (dp[i][sum / 2] == 1) {
+                        return true;
                     }
                 }
             }
         }
 
-        for (int i = 0; i < nums.length; i++) {
-            if (dp[i][sum / 2] == 1) {
-                return true;
-            }
-        }
         return false;
     }
 }

@@ -1,17 +1,42 @@
 package problems.medium.dp;
 
-import java.util.Arrays;
-
 /**
- * Problem: https://leetcode.com/problems/longest-increasing-subsequence/
- * Time Complexity:
- * Space Complexity：
+ * Problem: <a href="https://leetcode.com/problems/longest-increasing-subsequence">
+ * longest-increasing-subsequence</a>
+ * Time Complexity: O(N logN)
+ * Space Complexity： O(N)
  */
 class Solution300 {
+    // from comments
     public int lengthOfLIS(int[] nums) {
-        int res = 1;
+        int size = 0;
+        int[] tails = new int[nums.length];
+
+        for (int num : nums) {
+            int left = 0;
+            int right = size;
+
+            while (left < right) {
+                int mid = (left + right) / 2;
+                if (tails[mid] < num) {
+                    left = mid + 1;
+                } else {
+                    right = mid;
+                }
+            }
+
+            tails[left] = num;
+            if (left == size) {
+                size++;
+            }
+        }
+
+        return size;
+    }
+
+    public int lengthOfLIS1(int[] nums) {
+        int res = 0;
         int[] dp = new int[nums.length];
-        Arrays.fill(dp, 1);
         for (int i = 1; i < nums.length; i++) {
             for (int j = 0; j < i; j++) {
                 if (nums[i] > nums[j]) {
@@ -21,6 +46,6 @@ class Solution300 {
             res = Math.max(res, dp[i]);
         }
 
-        return res;
+        return res + 1;
     }
 }
