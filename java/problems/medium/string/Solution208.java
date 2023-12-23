@@ -20,12 +20,15 @@ class Solution208 {
 
     class Trie {
         Node root;
+        Set<String> words;
 
         public Trie() {
             root = new Node();
+            words = new HashSet<>();
         }
 
         public void insert(String word) {
+            words.add(word);
             Node curr = root;
             for (int i = 0; i < word.length(); i++) {
                 if (curr.children[word.charAt(i) - 'a'] == null) {
@@ -37,11 +40,7 @@ class Solution208 {
         }
 
         public boolean search(String word) {
-            Node curr = root;
-            for (int i = 0; curr != null && i < word.length(); i++) {
-                curr = curr.children[word.charAt(i) - 'a'];
-            }
-            return curr != null && curr.isWord;
+            return words.contains(word);
         }
 
         public boolean startsWith(String prefix) {
