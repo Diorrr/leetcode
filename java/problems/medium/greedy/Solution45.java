@@ -9,6 +9,22 @@ package problems.medium.greedy;
  */
 class Solution45 {
     public int jump(int[] nums) {
+        int res = 0;
+        int curEnd = 0;
+        int curMax = 0;
+
+        for (int i = 0; i < nums.length; i++) {
+            curMax = Math.max(i + nums[i], curMax);
+            if (i == curEnd) {
+                res++;
+                curEnd = curMax;
+            }
+        }
+
+        return res;
+    }
+
+    public int jump1(int[] nums) {
         if (nums.length == 1) {
             return 0;
         }
