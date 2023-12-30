@@ -3,8 +3,9 @@ package problems.medium.arrays;
 import java.util.*;
 
 /**
- * Problem: https://leetcode.com/problems/longest-consecutive-sequence/
- * Time Complexity:
+ * Problem: <a href="https://leetcode.com/problems/longest-consecutive-sequence">
+ * longest-consecutive-sequence</a>
+ * Time Complexity: O(NlogN)
  * Space Complexity：
  */
 class Solution128 {
@@ -12,15 +13,36 @@ class Solution128 {
         if (nums.length < 2) {
             return nums.length;
         }
-        SortedSet<Integer> set = new TreeSet<>();
-        int count = 1, res = 1;
-        Arrays.stream(nums).forEach(set::add);
-        List<Integer> sortedNums = new ArrayList<>(set);
-        for (int i = 1; i < sortedNums.size(); i++) {
-            if (sortedNums.get(i) == (sortedNums.get(i - 1) + 1)) {
+        int res = 0;
+        int count = 1;
+        Arrays.sort(nums);
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] - nums[i - 1] == 1) {
                 count++;
-            } else {
+            } else if (nums[i] != nums[i - 1]) {
                 count = 1;
+            }
+            res = Math.max(count, res);
+        }
+
+        return res;
+    }
+
+    public int longestConsecutive1(int[] nums) {
+        int res = 0;
+        int count = 1;
+        HashMap<Integer, Integer> map = new HashMap<>(nums.length);
+        for (int num : nums) {
+            map.put(num, num);
+        }
+        for (int num : nums) {
+            count = 1;
+            int x = num;
+            if (map.get(x + 1) == null) {
+                while (map.get(x - 1) != null) {
+                    count++;
+                    x--;
+                }
             }
             res = Math.max(count, res);
         }
