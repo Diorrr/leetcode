@@ -9,7 +9,7 @@ import java.util.*;
  */
 public class Solution347 {
     public int[] topKFrequent(int[] nums, int k) {
-        List<Integer> res = new ArrayList<>();
+        int[] res = new int[k];
         List<Integer>[] bucket = new List[nums.length + 1];
         HashMap<Integer, Integer> freq = new HashMap<>();
 
@@ -18,20 +18,24 @@ public class Solution347 {
         }
 
         freq.keySet().forEach(key -> {
-            if (bucket[freq.get(key)] == null) {
-                bucket[freq.get(key)] = new ArrayList<>();
+            int frequency = freq.get(key);
+            if (bucket[frequency] == null) {
+                bucket[frequency] = new ArrayList<>();
             }
-            bucket[freq.get(key)].add(key);
+            bucket[frequency].add(key);
         });
 
-        for (int i = bucket.length - 1; i >= 0 && k > 0; i--) {
+        k--;
+        for (int i = bucket.length - 1; i >= 0 && k >= 0; i--) {
             if (bucket[i] != null) {
-                res.addAll(bucket[i]);
-                k -= bucket[i].size();
+                for (Integer num : bucket[i]) {
+                    res[k] = num;
+                    k--;
+                }
             }
         }
 
-        return res.stream().mapToInt(Integer::intValue).toArray();
+        return res;
     }
 
     public int[] topKFrequent2(int[] nums, int k) {
