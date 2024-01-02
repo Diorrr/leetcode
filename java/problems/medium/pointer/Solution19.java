@@ -4,10 +4,10 @@ import util.ListNode;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /**
- * Problem: https://leetcode.com/problems/remove-nth-node-from-end-of-list/
+ * Problem: <a href="https://leetcode.com/problems/remove-nth-node-from-end-of-list">
+ * remove-nth-node-from-end-of-list</a>
  * Time Complexity: O(N)
  * Space Complexity： O(1)
  */
@@ -20,11 +20,11 @@ class Solution19 {
             n--;
         }
 
-        if (Objects.isNull(fast)) {
+        if (fast == null) {
             return head.next;
         }
 
-        while (Objects.nonNull(fast) && Objects.nonNull(fast.next)) {
+        while (fast != null && fast.next != null) {
             fast = fast.next;
             slow = slow.next;
         }
@@ -37,13 +37,13 @@ class Solution19 {
         ListNode cur = head;
         ListNode prev = null;
         int count;
-        if (Objects.nonNull(head)) {
+        if (head != null) {
             count = 1;
         } else {
             return null;
         }
 
-        while (Objects.nonNull(cur.next)) {
+        while (cur.next != null) {
             count++;
             prev = cur;
             cur = cur.next;
@@ -64,13 +64,13 @@ class Solution19 {
     }
 
     public ListNode removeNthFromEnd3(ListNode head, int n) {
-        if (Objects.isNull(head.next) && n == 1) {
+        if (head.next == null && n == 1) {
             return null;
         }
         ListNode prev, curr, next;
         curr = head;
         List<ListNode> list = new ArrayList<>(List.of(curr));
-        while (Objects.nonNull(curr.next)) {
+        while (curr.next != null) {
             curr = curr.next;
             list.add(curr);
         }
