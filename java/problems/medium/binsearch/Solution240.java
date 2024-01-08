@@ -3,14 +3,15 @@ package problems.medium.binsearch;
 import java.util.Arrays;
 
 /**
- * Problem: https://leetcode.com/problems/search-a-2d-matrix-ii/description/
- * Time Complexity:
+ * Problem: <a href="https://leetcode.com/problems/search-a-2d-matrix-ii">
+ * search-a-2d-matrix-ii</a>
+ * Time Complexity: O(NlogN)
  * Space Complexity：
  */
 class Solution240 {
     public boolean searchMatrix(int[][] matrix, int target) {
         for (int[] row : matrix) {
-            if (binsearch(row, target)) {
+            if (row[0] <= target && row[row.length - 1] >= target && binsearch(row, target)) {
                 return true;
             }
         }
@@ -20,7 +21,7 @@ class Solution240 {
     private boolean binsearch(int[] row, int target) {
         int l = 0, r = row.length - 1;
         while (l <= r) {
-            int m = l + (r - l) / 2;
+            int m = (r + l) / 2;
             if (row[m] == target) {
                 return true;
             } else if (row[m] < target) {
@@ -32,7 +33,6 @@ class Solution240 {
 
         return false;
     }
-
 
     public boolean searchMatrix1(int[][] matrix, int target) {
         for (int[] row : matrix) {
