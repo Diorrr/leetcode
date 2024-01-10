@@ -10,9 +10,28 @@ import java.util.*;
  * Space Complexity：
  */
 class Solution239 {
+    public int[] maxSlidingWindow(int[] nums, int k) {
+        int n = nums.length;
+        int[] res = new int[n - k + 1];
+        Deque<Integer> queue = new ArrayDeque<>();
+        for (int i = 0; i < nums.length; i++) {
+            while (!queue.isEmpty() && queue.peek() < i - k + 1) {
+                queue.poll();
+            }
+            while (!queue.isEmpty() && nums[queue.peekLast()] < nums[i]) {
+                queue.pollLast();
+            }
+            queue.offer(i);
+            if (i >= k - 1) {
+                res[i - (k - 1)] = nums[queue.peek()];
+            }
+        }
+        return res;
+    }
+
     int[] t;
 
-    public int[] maxSlidingWindow(int[] nums, int k) {
+    public int[] maxSlidingWindow3(int[] nums, int k) {
         int n = nums.length;
         t = new int[4 * n];
         int[] res = new int[n - k + 1];
@@ -48,20 +67,19 @@ class Solution239 {
         PriorityQueue<int[]> queue = new PriorityQueue<>(
                 (a, b) -> a[0] != b[0] ? Integer.compare(b[0], a[0]) : Integer.compare(a[1], b[1])
         );
-        List<Integer> res = new ArrayList<>();
+        int[] res = new int[nums.length - k + 1];
         for (int i = 0; i < k; i++) {
             queue.add(new int[]{nums[i], i});
         }
-        res.add(queue.peek()[0]);
-        for (int i = k; i < nums.length; i++) {
+        for (int i = k - 1; i < nums.length; i++) {
             while (!queue.isEmpty() && queue.peek()[1] <= i - k) {
                 queue.poll();
             }
             queue.add(new int[]{nums[i], i});
-            res.add(queue.peek()[0]);
+            res[i - (k - 1)] = queue.peek()[0];
         }
 
-        return res.stream().mapToInt(Integer::intValue).toArray();
+        return res;
     }
 
     public int[] maxSlidingWindow2(int[] nums, int k) {
