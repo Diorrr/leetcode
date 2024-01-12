@@ -3,6 +3,7 @@ package problems.medium.hashtable;
 import util.ListNode;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -14,14 +15,39 @@ import java.util.Set;
  */
 class Solution142 {
     public ListNode detectCycle(ListNode head) {
+        ListNode slow = head;
+        ListNode fast = head;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast) {
+                break;
+            }
+        }
+
+        if (fast == null || fast.next == null) {
+            return null;
+        }
+
+        while (head != slow) {
+            head = head.next;
+            slow = slow.next;
+        }
+
+        return head;
+    }
+
+    public ListNode detectCycle1(ListNode head) {
         Set<ListNode> set = new HashSet<>();
-        while (Objects.nonNull(head) && Objects.nonNull(head.next)) {
+        while (head != null && head.next != null) {
             if (set.contains(head)) {
                 return head;
             }
             set.add(head);
             head = head.next;
         }
+
         return null;
     }
 }
