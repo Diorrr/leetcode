@@ -1,19 +1,33 @@
 package problems.medium.stack;
 
 
-import java.util.ArrayDeque;
-import java.util.Arrays;
-import java.util.Deque;
-import java.util.HashMap;
+import java.util.*;
 
 /**
- * Problem: <a href="link">
- * problem</a>
+ * Problem: <a href="https://leetcode.com/problems/daily-temperatures">
+ * daily-temperatures</a>
  * Time Complexity:
  * Space Complexity：
  */
 class Solution739 {
     public int[] dailyTemperatures(int[] temperatures) {
+        int[] res = new int[temperatures.length];
+        Stack<Integer> stack = new Stack<>();
+
+        for (int i = temperatures.length - 1; i >= 0; i--) {
+            while (!stack.isEmpty() && temperatures[i] >= temperatures[stack.peek()]) {
+                stack.pop();
+            }
+            if (!stack.isEmpty()) {
+                res[i] = stack.peek() - i;
+            }
+            stack.push(i);
+        }
+
+        return res;
+    }
+
+    public int[] dailyTemperatures2(int[] temperatures) {
         int[] res = new int[temperatures.length];
         HashMap<Integer, Deque<Integer>> positionMap = new HashMap<>();
         for (int i = 0; i < temperatures.length; i++) {
@@ -37,15 +51,5 @@ class Solution739 {
         }
 
         return res;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(
-                Arrays.toString(new Solution739().dailyTemperatures(
-                        new int[]{
-                                73, 74, 75, 71, 69, 72, 76, 73
-                        }
-                ))
-        );
     }
 }

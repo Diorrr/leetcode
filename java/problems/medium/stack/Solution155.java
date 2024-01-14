@@ -5,8 +5,8 @@ import java.util.PriorityQueue;
 import java.util.Stack;
 
 /**
- * Problem: <a href="link">
- * problem</a>
+ * Problem: <a href="https://leetcode.com/problems/min-stack">
+ * min-stack</a>
  * Time Complexity:
  * Space Complexity：
  */
