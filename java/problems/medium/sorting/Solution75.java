@@ -1,9 +1,10 @@
 package problems.medium.sorting;
 
 /**
- * Problem: https://leetcode.com/problems/sort-colors/description/
- * Time Complexity:
- * Space Complexity：
+ * Problem: <a href="https://leetcode.com/problems/sort-colors">
+ * sort-colors</a>
+ * Time Complexity: O(N)
+ * Space Complexity： O(1)
  */
 class Solution75 {
     public void sortColors(int[] nums) {
@@ -20,6 +21,5 @@ class Solution75 {
                 nums[i] = 2;
             }
         }
-
     }
 }
