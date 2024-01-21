@@ -3,12 +3,23 @@ package problems.medium.lca;
 import util.TreeNode;
 
 /**
- * Problem: https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/description/
+ * Problem: <a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree">
+ * lowest-common-ancestor-of-a-binary-search-tree</a>
  * Time Complexity:
  * Space Complexity：
  */
-class Solution235 {
+class Solution236 {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        if (root == null || root == p || root == q) {
+            return root;
+        }
+        TreeNode left = lowestCommonAncestor(root.left, p, q);
+        TreeNode right = lowestCommonAncestor(root.right, p, q);
+
+        return left != null ? (right != null ? root : left) : right;
+    }
+
+    public TreeNode lowestCommonAncestor3(TreeNode root, TreeNode p, TreeNode q) {
         return lca(root, p, q);
     }
 
