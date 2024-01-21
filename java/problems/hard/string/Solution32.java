@@ -17,14 +17,14 @@ class Solution32 {
                 for (int j = i; j < chars.length; j++) {
                     if (chars[j] == '(') {
                         count++;
-                    } else if (count > 0) {
+                    } else {
                         count--;
                         if (count == 0) {
                             res = Math.max(j - start + 1, res);
                             i = j;
+                        } else if (count < 0) {
+                            break;
                         }
-                    } else {
-                        break;
                     }
                 }
             }
