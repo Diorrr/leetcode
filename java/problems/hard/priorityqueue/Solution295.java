@@ -12,28 +12,28 @@ import java.util.PriorityQueue;
  */
 class Solution295 {
     static class MedianFinder {
-        PriorityQueue<Integer> small;
         PriorityQueue<Integer> large;
+        PriorityQueue<Integer> small;
         boolean isEven = true;
 
         public MedianFinder() {
-            small = new PriorityQueue<>(Collections.reverseOrder());
-            large = new PriorityQueue<>();
+            large = new PriorityQueue<>(Collections.reverseOrder());
+            small = new PriorityQueue<>();
         }
 
         public void addNum(int num) {
             if (isEven) {
-                large.offer(num);
-                small.offer(large.poll());
-            } else {
                 small.offer(num);
                 large.offer(small.poll());
+            } else {
+                large.offer(num);
+                small.offer(large.poll());
             }
             isEven = !isEven;
         }
 
         public double findMedian() {
-            return isEven ? (small.peek() + large.peek()) / 2.0 : small.peek();
+            return isEven ? (large.peek() + small.peek()) / 2.0 : large.peek();
         }
     }
 }
