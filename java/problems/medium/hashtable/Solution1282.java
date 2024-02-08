@@ -16,11 +16,12 @@ class Solution1282 {
         List<List<Integer>> res = new ArrayList<>();
         HashMap<Integer, List<Integer>> group = new HashMap<>();
         for (int i = 0; i < groupSizes.length; i++) {
-            group.putIfAbsent(groupSizes[i], new ArrayList<>());
-            group.get(groupSizes[i]).add(i);
-            if (group.get(groupSizes[i]).size() == groupSizes[i]) {
-                res.add(group.get(groupSizes[i]));
-                group.put(groupSizes[i], new ArrayList<>());
+            int size = groupSizes[i];
+            group.putIfAbsent(size, new ArrayList<>());
+            group.get(size).add(i);
+            if (group.get(size).size() == size) {
+                res.add(group.get(size));
+                group.put(size, new ArrayList<>());
             }
         }
 

@@ -17,21 +17,20 @@ class Solution451 {
             freq.put(character, freq.getOrDefault(character, 0) + 1);
         }
 
-        freq.keySet().forEach(key -> {
-            if (bucket[freq.get(key)] == null) {
-                bucket[freq.get(key)] = new ArrayList<>();
+        freq.forEach((key, value) -> {
+            if (bucket[value] == null) {
+                bucket[value] = new ArrayList<>();
             }
-            bucket[freq.get(key)].add(key);
+            bucket[value].add(key);
         });
 
         StringBuilder builder = new StringBuilder(s.length());
         for (int i = bucket.length - 1; i >= 0; i--) {
-            if (bucket[i] != null) {
                 int finalI = i;
                 bucket[i].forEach(c->{
                     builder.append(String.valueOf(c).repeat(finalI));
                 });
-            }
+
         }
 
         return builder.toString();
