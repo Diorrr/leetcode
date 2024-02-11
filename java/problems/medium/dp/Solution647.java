@@ -8,11 +8,12 @@ package problems.medium.dp;
 class Solution647 {
     // solution from comments
     public int countSubstrings(String s) {
+        char[] sChar = s.toCharArray();
         boolean[][] dp = new boolean[s.length()][s.length()];
         int res = 0;
         for (int i = 0; i < s.length(); i++) {
             for (int j = 0; j <= i; j++) {
-                dp[i][j] = (s.charAt(i) == s.charAt(j)) && (i - 1 < j + 1 || dp[i - 1][j + 1]);
+                dp[i][j] = (sChar[i] == sChar[j]) && (i - 1 < j + 1 || dp[i - 1][j + 1]);
                 if (dp[i][j]) {
                     res++;
                 }
@@ -24,16 +25,17 @@ class Solution647 {
     Integer count = 0;
 
     public int countSubstrings1(String s) {
-        for (int i = 0; i < s.length(); i++) {
-            countFrom(s, i, i);
-            countFrom(s, i, i + 1);
+        char[] sChar = s.toCharArray();
+        for (int i = 0; i < sChar.length; i++) {
+            countFrom(sChar, i, i);
+            countFrom(sChar, i, i + 1);
         }
 
         return count;
     }
 
-    private void countFrom(String s, int i, int j) {
-        while (i >= 0 && j < s.length() && s.charAt(i) == s.charAt(j)) {
+    private void countFrom(char[] s, int i, int j) {
+        while (i >= 0 && j < s.length && s[i] == s[j]) {
             count++;
             i--;
             j++;
