@@ -21,13 +21,4 @@ class Solution714 {
 
         return dp[prices.length - 1][0];
     }
-
-    public static void main(String[] args) {
-        System.out.println(
-                new Solution714().maxProfit(
-                        new int[]{4, 5, 2, 4, 3, 3, 1, 2, 5, 4},
-                        1
-                )
-        );
-    }
 }
