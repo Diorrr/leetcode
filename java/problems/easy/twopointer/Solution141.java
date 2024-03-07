@@ -6,12 +6,26 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Problem: https://leetcode.com/problems/linked-list-cycle/
+ * Problem: <a href="https://leetcode.com/problems/linked-list-cycle">
+ * linked-list-cycle</a>
  * Time Complexity: O(N)
  * Space Complexity： O(1)
  */
 class Solution141 {
     public boolean hasCycle(ListNode head) {
+        var slow = head;
+        var fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean hasCycle1(ListNode head) {
         if (head == null) {
             return false;
         }
