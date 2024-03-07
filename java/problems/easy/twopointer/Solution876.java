@@ -7,13 +7,24 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Problem: https://leetcode.com/problems/middle-of-the-linked-list/
+ * Problem: <a href="https://leetcode.com/problems/middle-of-the-linked-list">
+ * middle-of-the-linked-list</a>
  * Time Complexity: O(N)
- * Space Complexity： (N)
+ * Space Complexity：
  */
 class Solution876 {
 
     public ListNode middleNode(ListNode head) {
+        var slow = head;
+        var fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+    }
+
+    public ListNode middleNode2(ListNode head) {
         List<ListNode> list = new ArrayList<>();
         list.add(head);
         ListNode next = head.next;
@@ -23,23 +34,5 @@ class Solution876 {
         }
 
         return list.get(list.size() / 2);
-    }
-
-    public ListNode middleNode2(ListNode head) {
-        int count;
-        if (Objects.nonNull(head)) {
-            count = 1;
-        } else {
-            return head;
-        }
-        ListNode next = head.next;
-        while (Objects.nonNull(next)) {
-            count++;
-            next = next.next;
-        }
-        for (int i = 0; i < count / 2; i++) {
-            head = head.next;
-        }
-        return head;
     }
 }

@@ -9,10 +9,6 @@ import java.util.Arrays;
  */
 class Solution977 {
     public int[] sortedSquares(int[] nums) {
-        if (nums.length == 1) {
-            nums[0] = nums[0] * nums[0];
-            return nums;
-        }
         int[] res = new int[nums.length];
         int pos = findPosition(nums);
 
@@ -39,28 +35,26 @@ class Solution977 {
     }
 
     private int findPosition(int[] nums) {
-        int pos = -1;
-        int l = -1, r = nums.length, m;
-        while (l < r - 1) {
+        int l = 0;
+        int r = nums.length - 1;
+        int m = 0;
+        while (l <= r) {
             m = (l + r) / 2;
             if (nums[m] == 0) {
-                pos = m;
                 break;
             } else if (nums[m] < 0) {
-                l = m;
-                pos = m;
+                l = m + 1;
             } else {
-                r = m;
-                pos = m;
+                r = m - 1;
             }
         }
-        if (pos + 1 < nums.length && Math.abs(nums[pos]) > Math.abs(nums[pos + 1])) {
-            return pos + 1;
+        if (m + 1 < nums.length && Math.abs(nums[m]) > Math.abs(nums[m + 1])) {
+            return m + 1;
         }
-        if (pos - 1 >= 0 && Math.abs(nums[pos - 1]) < Math.abs(nums[pos])) {
-            return pos - 1;
+        if (m - 1 >= 0 && Math.abs(nums[m - 1]) < Math.abs(nums[m])) {
+            return m - 1;
         }
-        return pos;
+        return m;
     }
 
     public int[] sortedSquares1(int[] nums) {

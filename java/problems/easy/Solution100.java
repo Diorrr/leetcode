@@ -8,8 +8,8 @@ import java.util.Queue;
 /**
  * Problem: <a href="https://leetcode.com/problems/same-tree">
  * same-tree</a>
- * Time Complexity: O(n+m)
- * Space Complexity： O(1)
+ * Time Complexity:O(n+m)
+ * Space Complexity：O(1)
  */
 class Solution100 {
     public boolean isSameTree(TreeNode p, TreeNode q) {
