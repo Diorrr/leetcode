@@ -4,7 +4,6 @@ import util.ListNode;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * Problem: <a href="https://leetcode.com/problems/middle-of-the-linked-list">
