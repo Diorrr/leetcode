@@ -9,6 +9,22 @@ package problems.medium.prefixsum;
 class Solution238 {
     public int[] productExceptSelf(int[] nums) {
         int[] res = new int[nums.length];
+        int product = nums[0];
+        for (int i = 1; i < res.length; i++) {
+            res[i] = product;
+            product *= nums[i];
+        }
+        res[0] = 1;
+        product = nums[nums.length - 1];
+        for (int i = nums.length - 2; i >= 0; i--) {
+            res[i] *= product;
+            product *= nums[i];
+        }
+        return res;
+    }
+
+    public int[] productExceptSelf1(int[] nums) {
+        int[] res = new int[nums.length];
         int pref = 1;
         int suf = 1;
         for (int num : nums) {
