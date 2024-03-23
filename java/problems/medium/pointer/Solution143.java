@@ -7,14 +7,15 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Problem: https://leetcode.com/problems/reorder-list/description/
- * Time Complexity:
- * Space Complexity：
+ * Problem: <a href="https://leetcode.com/problems/reorder-list">
+ * reorder-list</a>
+ * Time Complexity: O(N)
+ * Space Complexity： O(N)
  */
 class Solution143 {
     public void reorderList(ListNode head) {
         List<ListNode> list = new ArrayList<>();
-        while (Objects.nonNull(head)) {
+        while (head != null) {
             list.add(head);
             head = head.next;
         }
