@@ -21,12 +21,10 @@ class Solution2265 {
         if (root == null) {
             return res;
         }
-        res[0] = 1;
-        res[1] = root.val;
         int[] left = countAverage(root.left);
         int[] right = countAverage(root.right);
-        res[0] += left[0] + right[0];
-        res[1] += left[1] + right[1];
+        res[0] = 1 + left[0] + right[0];
+        res[1] = root.val + left[1] + right[1];
         if (root.val == res[1] / res[0]) {
             count++;
         }
