@@ -4,8 +4,8 @@ package problems.easy.math;
 /**
  * Problem: <a href="https://leetcode.com/problems/time-needed-to-buy-tickets">
  * time-needed-to-buy-tickets</a>
- * Time Complexity:
- * Space Complexity：
+ * Time Complexity: O(N)
+ * Space Complexity： O(1)
  */
 class Solution2073 {
     public int timeRequiredToBuy(int[] tickets, int k) {
