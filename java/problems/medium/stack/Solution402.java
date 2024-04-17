@@ -32,6 +32,6 @@ class Solution402 {
             res.deleteCharAt(0);
         }
 
-        return res.length() > 0 ? res.toString() : "0";
+        return res.isEmpty() ? "0" : res.toString();
     }
 }
