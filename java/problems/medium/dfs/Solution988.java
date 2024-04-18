@@ -1,4 +1,4 @@
-package problems;
+package problems.medium.dfs;
 
 
 import util.TreeNode;
