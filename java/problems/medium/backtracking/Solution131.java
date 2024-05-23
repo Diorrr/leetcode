@@ -1,6 +1,7 @@
 package problems.medium.backtracking;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -13,11 +14,50 @@ class Solution131 {
     List<List<String>> res = new ArrayList<>();
 
     public List<List<String>> partition(String s) {
-        backtrack(s, 0, new ArrayList<String>());
+        backtrack1(s, 0, new ArrayList<>());
         return res;
     }
 
-    private void backtrack(String original, int index, List<String> strings) {
+    private void backtrack(char[] chars, int index, LinkedList<String> linkedList) {
+        if (index == chars.length) {
+            res.add(new LinkedList<>(linkedList));
+        } else {
+            StringBuilder sb = new StringBuilder();
+            for (int i = index; i < chars.length; i++) {
+                sb.append(chars[i]);
+                String substr = sb.toString();
+                if (isPalindrome(substr)){
+                    linkedList.add(substr);
+                    backtrack(chars, i + 1, linkedList);
+                    linkedList.removeLast();
+                }
+            }
+        }
+    }
+
+    private void backtrack1(String original, int index, List<String> strings) {
+        if (index == original.length()) {
+            res.add(new ArrayList<>(strings));
+        } else if (index < original.length()) {
+            StringBuilder sb = new StringBuilder();
+            for (int i = index; i < original.length(); i++) {
+                sb.append(original.charAt(i));
+                String substr = sb.toString();
+                if (isPalindrome(substr)) {
+                    strings.add(substr);
+                    backtrack1(original, i + 1, strings);
+                    strings.remove(strings.size()-1);
+                }
+            }
+        }
+    }
+
+    public List<List<String>> partition2(String s) {
+        backtrack(s.toCharArray(), 0, new LinkedList<>());
+        return res;
+    }
+
+    private void backtrack3(String original, int index, List<String> strings) {
         if (index == original.length()) {
             res.add(new ArrayList<>(strings));
         } else if (index < original.length()) {
@@ -25,8 +65,8 @@ class Solution131 {
                 String substr = original.substring(index, i);
                 if (isPalindrome(substr)) {
                     strings.add(substr);
-                    backtrack(original, i, strings);
-                    strings.remove(strings.size()-1);
+                    backtrack3(original, i, strings);
+                    strings.remove(strings.size() - 1);
                 }
             }
         }

@@ -4,8 +4,8 @@ package problems.medium.bit;
 /**
  * Problem: <a href="https://leetcode.com/problems/minimum-number-of-operations-to-make-array-xor-equal-to-k">
  * minimum-number-of-operations-to-make-array-xor-equal-to-k</a>
- * Time Complexity:
- * Space Complexity：
+ * Time Complexity: O(N)
+ * Space Complexity：O(1)
  */
 class Solution2997 {
     public int minOperations(int[] nums, int k) {
