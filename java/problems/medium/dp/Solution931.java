@@ -8,7 +8,7 @@ import java.util.Arrays;
  * Space Complexity：
  */
 class Solution931 {
-    public int minFallingPathSum(int[][] matrix) {
+    public int minFallingPathSum2(int[][] matrix) {
         int n = matrix.length;
         int[][] dp = new int[n][n];
         for (int i = 0; i < n; i++) {
