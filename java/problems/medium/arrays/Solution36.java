@@ -50,8 +50,4 @@ class Solution36 {
 
         return true;
     }
-
-    public static void main(String[] args) {
-
-    }
 }
