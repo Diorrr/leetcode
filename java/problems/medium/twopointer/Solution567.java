@@ -1,42 +1,41 @@
 package problems.medium.twopointer;
 
 /**
- * Problem: https://leetcode.com/problems/permutation-in-string/
+ * Problem: <a href="https://leetcode.com/problems/permutation-in-string">
+ * permutation-in-string</a>
  * Time Complexity: O(N)
- * Space Complexity：
+ * Space Complexity： O(N)
  */
 class Solution567 {
     public boolean checkInclusion(String s1, String s2) {
         int counter = 0, len1 = s1.length(), len2 = s2.length();
-        int[] set1 = new int[256];
-        int[] set2 = new int[256];
-        char charAtLeft, charAtRight;
-        char[] chars1 = s1.toCharArray(), chars2 = s2.toCharArray();
+        int[] count1 = new int[256];
+        int[] count2 = new int[256];
+        char charAtLeft;
+        char charAtRight;
+        char[] chars1 = s1.toCharArray();
+        char[] chars2 = s2.toCharArray();
 
         for (int i = 0; i < len1; i++) {
-            set1[chars1[i]]++;
+            count1[chars1[i]]++;
         }
-        for (int i = 0; i < len2; i++) {
+        for (int i = 0; i < len2 && counter != len1; i++) {
             if (i >= len1) {
                 charAtLeft = chars2[i - len1];
-                if (set1[charAtLeft] >= set2[charAtLeft]) {
-                    counter--;
-                } else {
+                if (count1[charAtLeft] < count2[charAtLeft]) {
                     counter++;
+                } else {
+                    counter--;
                 }
-                set2[charAtLeft]--;
+                count2[charAtLeft]--;
             }
             charAtRight = chars2[i];
-            if (set1[charAtRight] > set2[charAtRight]) {
+            if (count1[charAtRight] > count2[charAtRight]) {
                 counter++;
             } else {
                 counter--;
             }
-            set2[charAtRight]++;
-
-            if (i + 1 >= len1 && counter == len1) {
-                return true;
-            }
+            count2[charAtRight]++;
         }
 
         return counter == len1;
