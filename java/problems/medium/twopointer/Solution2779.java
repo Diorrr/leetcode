@@ -11,6 +11,20 @@ import java.util.Arrays;
 class Solution2779 {
     public int maximumBeauty(int[] nums, int k) {
         int res = 1;
+        int start = 0;
+        Arrays.sort(nums);
+        for (int end = 0; end < nums.length; end++) {
+            while (nums[end] - nums[start] > 2 * k) {
+                start++;
+            }
+            res = Math.max(end - start, res);
+        }
+
+        return res;
+    }
+
+    public int maximumBeauty2(int[] nums, int k) {
+        int res = 1;
         int l = 0;
         int r = 1;
         Arrays.sort(nums);
