@@ -8,6 +8,19 @@ package problems.medium.arrays;
  */
 class Solution80 {
     public int removeDuplicates(int[] nums) {
+        if (nums.length < 3) {
+            return nums.length;
+        }
+        int pos = 2;
+        for (int i = 2; i < nums.length; i++) {
+            if (nums[i] != nums[pos - 1] || nums[i] != nums[pos - 2]) {
+                nums[pos++] = nums[i];
+            }
+        }
+        return pos;
+    }
+
+    public int removeDuplicates2(int[] nums) {
         int res = nums.length;
         int pow = (int) Math.pow(10, 4);
         int[] count = new int[2 * pow + 2];
