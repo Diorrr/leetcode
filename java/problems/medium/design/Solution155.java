@@ -1,4 +1,4 @@
-package problems.medium.stack;
+package problems.medium.design;
 
 
 import java.util.PriorityQueue;

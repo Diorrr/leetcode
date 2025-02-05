@@ -1,4 +1,4 @@
-package problems.easy.priorityqueue;
+package problems.easy.design;
 
 
 import java.util.ArrayList;

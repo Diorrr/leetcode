@@ -1,4 +1,4 @@
-package problems.medium.priorityqueue;
+package problems.medium.design;
 
 
 import java.util.PriorityQueue;

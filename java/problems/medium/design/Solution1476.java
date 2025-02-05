@@ -1,4 +1,4 @@
-package problems.medium.arrays;
+package problems.medium.design;
 
 import java.util.ArrayList;
 import java.util.List;
