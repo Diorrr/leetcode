@@ -10,6 +10,19 @@ package problems.medium.math;
 class Solution12 {
     public String intToRoman(int num) {
         StringBuilder sb = new StringBuilder();
+        int[] val = new int[]{1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+        String[] letter = new String[]{"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+        for (int i = 0; i < val.length; i++) {
+            if (num >= val[i]) {
+                sb.append(letter[i].repeat(num / val[i]));
+                num -= val[i] * (num / val[i]);
+            }
+        }
+        return sb.toString();
+    }
+
+    public String intToRoman2(int num) {
+        StringBuilder sb = new StringBuilder();
 
         while (num != 0) {
             if (num >= 1000) {
