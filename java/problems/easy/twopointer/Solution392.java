@@ -9,20 +9,16 @@ package problems.easy.twopointer;
 class Solution392 {
     public boolean isSubsequence(String s, String t) {
         int pointerS = 0;
-        int pointerT = 0;
-        int lenghtS = s.length();
-        int lenghtT = t.length();
-        char sCharArray[] = s.toCharArray();
-        char tCharArray[] = t.toCharArray();
+        char[] sCharArray = s.toCharArray();
+        char[] tCharArray = t.toCharArray();
 
-        while (pointerT < lenghtT && pointerS < lenghtS) {
+        for (int pointerT = 0; pointerT < t.length() && pointerS < s.length(); pointerT++) {
             if (sCharArray[pointerS] == tCharArray[pointerT]) {
                 pointerS++;
             }
-            pointerT++;
         }
 
-        return pointerS >= s.length();
+        return pointerS == s.length();
     }
 
     public boolean isSubsequence1(String s, String t) {

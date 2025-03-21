@@ -10,6 +10,29 @@ import java.util.*;
  */
 class Solution128 {
     public int longestConsecutive(int[] nums) {
+        int res = 0;
+        Set<Integer> used = new HashSet<>();
+        HashMap<Integer, Integer> map = new HashMap<>(nums.length);
+        for (int num : nums) {
+            map.put(num, num);
+        }
+        for (int num : nums) {
+            int count = 1;
+            int x = num;
+            if (map.get(x + 1) == null && !used.contains(x)) {
+                used.add(x);
+                while (map.get(x - 1) != null) {
+                    count++;
+                    x--;
+                }
+            }
+            res = Math.max(count, res);
+        }
+
+        return res;
+    }
+
+    public int longestConsecutive2(int[] nums) {
         if (nums.length < 2) {
             return nums.length;
         }
@@ -21,28 +44,6 @@ class Solution128 {
                 count++;
             } else if (nums[i] != nums[i - 1]) {
                 count = 1;
-            }
-            res = Math.max(count, res);
-        }
-
-        return res;
-    }
-
-    public int longestConsecutive1(int[] nums) {
-        int res = 0;
-        int count = 1;
-        HashMap<Integer, Integer> map = new HashMap<>(nums.length);
-        for (int num : nums) {
-            map.put(num, num);
-        }
-        for (int num : nums) {
-            count = 1;
-            int x = num;
-            if (map.get(x + 1) == null) {
-                while (map.get(x - 1) != null) {
-                    count++;
-                    x--;
-                }
             }
             res = Math.max(count, res);
         }

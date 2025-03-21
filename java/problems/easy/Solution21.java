@@ -39,12 +39,8 @@ class Solution21 {
                 start.val = list2.val;
                 list2 = list2.next;
             }
-            if (list1 == null && list2 == null) {
-                start.next = null;
-            } else {
-                start.next = new ListNode();
-                sortNodes(start.next, list1, list2);
-            }
+            start.next = new ListNode();
+            sortNodes(start.next, list1, list2);
         }
     }
 

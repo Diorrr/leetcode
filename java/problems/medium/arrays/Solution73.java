@@ -33,13 +33,15 @@ class Solution73 {
             }
         }
 
-        if (firstRowConsistZero) {
+        if (firstColumnConsistZero) {
             for (int i = 0; i < matrix.length; i++) {
                 matrix[i][0] = 0;
             }
         }
-        if (firstColumnConsistZero) {
-            Arrays.fill(matrix[0], 0);
+        if (firstRowConsistZero) {
+            for (int i = 0; i < matrix[0].length; i++) {
+                matrix[0][i] = 0;
+            }
         }
     }
 

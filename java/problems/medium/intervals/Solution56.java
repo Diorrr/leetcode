@@ -1,7 +1,9 @@
 package problems.medium.intervals;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.List;
 
 /**
  * Problem: <a href="https://leetcode.com/problems/merge-intervals">
@@ -12,28 +14,17 @@ import java.util.Comparator;
 class Solution56 {
     public int[][] merge(int[][] intervals) {
         Arrays.sort(intervals, Comparator.comparingInt(t -> t[0]));
-        int compInd = 0;
-        int mergeCount = 0;
-
-        for (int i = 1; i < intervals.length; i++) {
-            if (intervals[compInd][1] >= intervals[i][0]) {
-                intervals[compInd][1] = Math.max(intervals[compInd][1], intervals[i][1]);
-                intervals[i][0] = -1;
-                intervals[i][1] = -1;
-                mergeCount++;
-            } else {
-                compInd = i;
-            }
-        }
-
-        int pos = 0;
-        int[][] res = new int[intervals.length - mergeCount][];
+        List<int[]> result = new ArrayList<>();
+        int[] newInterval = intervals[0];
+        result.add(newInterval);
         for (int[] interval : intervals) {
-            if (interval[0] != -1) {
-                res[pos++] = interval;
+            if (interval[0] <= newInterval[1]) {
+                newInterval[1] = Math.max(interval[1], newInterval[1]);
+            } else {
+                newInterval = interval;
+                result.add(newInterval);
             }
         }
-
-        return res;
+        return result.toArray(new int[result.size()][]);
     }
 }

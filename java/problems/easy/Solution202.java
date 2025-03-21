@@ -15,11 +15,11 @@ class Solution202 {
         while (n != 1 && !set.contains(n)) {
             set.add(n);
             n = String.valueOf(n).chars()
-                    .mapToObj(c -> String.valueOf((char) c))
-                    .map(Integer::parseInt)
-                    .map(t -> t * t)
-                    .mapToInt(Integer::intValue)
-                    .sum();
+                      .mapToObj(c -> String.valueOf((char) c))
+                      .map(Integer::parseInt)
+                      .map(t -> t * t)
+                      .mapToInt(Integer::intValue)
+                      .sum();
         }
         return n == 1;
     }
@@ -39,11 +39,11 @@ class Solution202 {
             }
             k++;
             n = String.valueOf(n).chars()
-                    .mapToObj(c -> String.valueOf((char) c))
-                    .map(Integer::parseInt)
-                    .map(t -> t * t)
-                    .mapToInt(Integer::intValue)
-                    .sum();
+                      .mapToObj(c -> String.valueOf((char) c))
+                      .map(Integer::parseInt)
+                      .map(t -> t * t)
+                      .mapToInt(Integer::intValue)
+                      .sum();
         }
         return false;
     }

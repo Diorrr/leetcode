@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Problem: https://leetcode.com/problems/spiral-matrix/
+ * Problem: <a href="https://leetcode.com/problems/spiral-matrix">
+ * spiral-matrix</a>
  * Time Complexity: O(m*n)
  * Space Complexity：
  */
@@ -12,18 +13,18 @@ class Solution54 {
     // 1100 is (not) magic number which is out of matrix range
     public List<Integer> spiralOrder(int[][] matrix) {
         List<Integer> res = new ArrayList<>();
-        int[] dir = {0, 1, 1, 0, 0, -1, -1, 0};
+        int[][] dir = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
         int i = 0, j = 0;
         int m = matrix.length, n = matrix[0].length;
         int d = 0;
         for (int k = 1; k <= m * n; k++) {
             res.add(matrix[i][j]);
             matrix[i][j] = 1100;
-            if (matrix[Math.floorMod(i + dir[d], m)][Math.floorMod(j + dir[d + 1], n)] == 1100) {
-                d = (d + 2) % 8;
+            if (matrix[Math.floorMod(i + dir[d][0], m)][Math.floorMod(j + dir[d][1], n)] == 1100) {
+                d = (d + 1) % 4;
             }
-            i += dir[d];
-            j += dir[d + 1];
+            i += dir[d][0];
+            j += dir[d][1];
         }
         return res;
     }

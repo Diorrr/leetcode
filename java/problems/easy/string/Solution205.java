@@ -1,30 +1,23 @@
 package problems.easy.string;
 
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-
 /**
  * Problem: <a href="https://leetcode.com/problems/isomorphic-strings">
  * isomorphic-strings</a>
- * Time Complexity:
- * Space Complexity：
+ * Time Complexity: O(N)
+ * Space Complexity： O(1)
  */
 class Solution205 {
     public boolean isIsomorphic(String s, String t) {
-        Map<Character, Character> map = new HashMap<>();
-        Set<Character> used = new HashSet<>();
+        Character[] map = new Character[256];
+        boolean[] used = new boolean[256];
         for (int i = 0; i < s.length(); i++) {
             var sChar = s.charAt(i);
             var tChar = t.charAt(i);
-            if (!map.containsKey(sChar) && !used.contains(tChar)) {
-                map.put(sChar, tChar);
-                used.add(tChar);
-            }
-
-            if (!map.containsKey(sChar) || map.get(sChar) != tChar) {
+            if (map[sChar] == null && !used[tChar]) {
+                map[sChar] = tChar;
+                used[tChar] = true;
+            } else if (map[sChar] == null || map[sChar] != tChar) {
                 return false;
             }
         }

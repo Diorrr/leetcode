@@ -7,8 +7,7 @@ package problems.medium.twopointer;
  */
 class Solution209 {
     public int minSubArrayLen(int target, int[] nums) {
-        int l = 0, r = 0, sum = 0, res = -1;
-        boolean isReached = false;
+        int l = 0, r = 0, sum = 0, res = Integer.MAX_VALUE;
 
         while (l < nums.length) {
             if (l == r) {
@@ -22,8 +21,7 @@ class Solution209 {
                 }
             } else {
                 if (sum >= target) {
-                    res = isReached ? Math.min(res, r - l + 1) : r - l + 1;
-                    isReached = true;
+                    res = Math.min(res, r - l + 1);
                     sum -= nums[l++];
                 } else if (r + 1 < nums.length) {
                     r++;
@@ -34,6 +32,6 @@ class Solution209 {
             }
         }
 
-        return isReached ? res : 0;
+        return res == Integer.MAX_VALUE ? 0 : res;
     }
 }

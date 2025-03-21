@@ -1,6 +1,8 @@
 package problems.medium.twopointer;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Problem: <a href="https://leetcode.com/problems/3sum">
