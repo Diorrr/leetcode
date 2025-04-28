@@ -2,22 +2,45 @@ package problems.easy.bfs;
 
 import util.TreeNode;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+import java.util.Set;
+
 
 /**
- * Problem: https://leetcode.com/problems/average-of-levels-in-binary-tree/
- * Time Complexity:
+ * Problem: <a href="https://leetcode.com/problems/average-of-levels-in-binary-tree">
+ * average-of-levels-in-binary-tree</a>
+ * Time Complexity: O(n+m)
  * Space Complexity：
  */
-class Solution937 {
+class Solution637 {
     public List<Double> averageOfLevels(TreeNode root) {
         List<Double> res = new ArrayList<>();
-        bfs(root, res);
-
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            double sum = 0.0;
+            int num = queue.size();
+            int layerNodeCount = queue.size();
+            while (layerNodeCount-- > 0) {
+                TreeNode node = queue.poll();
+                sum += node.val;
+                if (node.left != null) {
+                    queue.add(node.left);
+                }
+                if (node.right != null) {
+                    queue.add(node.right);
+                }
+            }
+            res.add(sum / num);
+        }
         return res;
     }
 
-    void bfs(TreeNode root, List<Double> res) {
+    void bfs2(TreeNode root, List<Double> res) {
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
         Set<TreeNode> used = new HashSet<>();
@@ -28,7 +51,7 @@ class Solution937 {
 
         while (!queue.isEmpty()) {
             TreeNode x = queue.remove();
-            if (Objects.nonNull(x)) {
+            if (x != null) {
                 sum += x.val;
                 num++;
                 if (!used.contains(x.left)) {

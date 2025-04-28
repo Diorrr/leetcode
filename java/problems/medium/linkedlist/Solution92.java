@@ -4,21 +4,18 @@ import util.ListNode;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /**
- * Problem: https://leetcode.com/problems/reverse-linked-list-ii/description/
+ * Problem: <a href=" https://leetcode.com/problems/reverse-linked-list-ii">
+ * reverse-linked-list-ii</a>
  * Time Complexity:
  * Space Complexity：
  */
 class Solution92 {
     public ListNode reverseBetween(ListNode head, int left, int right) {
-        if (Objects.isNull(head) || Objects.isNull(head.next)) {
-            return head;
-        }
         ListNode headCopy = head;
         List<ListNode> list = new ArrayList<>();
-        while (Objects.nonNull(headCopy)) {
+        while (headCopy != null) {
             list.add(headCopy);
             headCopy = headCopy.next;
         }

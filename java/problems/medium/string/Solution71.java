@@ -16,6 +16,26 @@ import java.util.Set;
  */
 class Solution71 {
     public String simplifyPath(String path) {
+        String[] folders = path.split("/");
+        LinkedList<String> list = new LinkedList<>();
+        for (String folder : folders) {
+            if (!folder.isEmpty() && !folder.equals(".")) {
+                if (!folder.equals("..")) {
+                    list.add(folder);
+                } else if (!list.isEmpty()) {
+                    list.removeLast();
+                }
+            }
+        }
+
+        StringBuilder sb = new StringBuilder();
+        for (String folder : list) {
+            sb.append("/").append(folder);
+        }
+        return sb.isEmpty() ? "/" : sb.toString();
+    }
+
+    public String simplifyPath1(String path) {
         Deque<String> deque = new LinkedList<>();
         Set<String> set = new HashSet<>(List.of("", ".", ".."));
         char[] pathChar = path.toCharArray();
