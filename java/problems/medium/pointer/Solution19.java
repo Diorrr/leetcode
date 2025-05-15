@@ -2,7 +2,7 @@ package problems.medium.pointer;
 
 import util.ListNode;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -64,27 +64,20 @@ class Solution19 {
     }
 
     public ListNode removeNthFromEnd3(ListNode head, int n) {
-        if (head.next == null && n == 1) {
-            return null;
-        }
-        ListNode prev, curr, next;
-        curr = head;
-        List<ListNode> list = new ArrayList<>(List.of(curr));
-        while (curr.next != null) {
-            curr = curr.next;
-            list.add(curr);
-        }
-        if (list.size() - n > 0 && n - 1 > 0) {
-            prev = list.get(list.size() - n - 1);
-            next = list.get(list.size() - n + 1);
-            prev.next = next;
-        } else if (list.size() - n > 0) {
-            prev = list.get(list.size() - n - 1);
-            prev.next = null;
-        } else if (n - 1 > 0) {
+        List<ListNode> list = new LinkedList<>();
+        while (head != null) {
+            list.add(head);
             head = head.next;
         }
-
-        return head;
+        if (list.size() == n && list.size() == 1) {
+            return null;
+        } else if (list.size() == n) {
+            return list.get(1);
+        } else if (n == 1) {
+            list.get(list.size() - 2).next = null;
+        } else {
+            list.get(list.size() - 1 - n).next = list.get(list.size() - n + 1);
+        }
+        return list.get(0);
     }
 }

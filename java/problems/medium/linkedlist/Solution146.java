@@ -5,8 +5,8 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * Problem: <a href="link">
- * problem</a>
+ * Problem: <a href="https://leetcode.com/problems/lru-cache">
+ * lru-cache</a>
  * Time Complexity:
  * Space Complexity：
  */

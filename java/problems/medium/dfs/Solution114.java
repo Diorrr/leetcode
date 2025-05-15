@@ -14,6 +14,28 @@ import java.util.List;
  */
 class Solution114 {
     public void flatten(TreeNode root) {
+        if (root != null) {
+            transformNode(root);
+        }
+    }
+
+    private TreeNode transformNode(TreeNode root) {
+        if (root == null) {
+            return null;
+        }
+        TreeNode left = transformNode(root.left);
+        TreeNode right = transformNode(root.right);
+        root.left = null;
+        root.right = left;
+        TreeNode current = root;
+        while (current.right != null) {
+            current = current.right;
+        }
+        current.right = right;
+        return root;
+    }
+
+    public void flatten2(TreeNode root) {
         if (root == null) {
             return;
         }

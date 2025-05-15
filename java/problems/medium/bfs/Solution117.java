@@ -6,7 +6,8 @@ import java.util.List;
 import java.util.Queue;
 
 /**
- * Problem: https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/description/
+ * Problem: <a href="https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii">
+ * populating-next-right-pointers-in-each-node-ii</a>
  * Time Complexity:
  * Space Complexity：
  */
