@@ -4,7 +4,6 @@ import util.ListNode;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * Problem: https://leetcode.com/problems/rotate-list/description/
@@ -12,13 +11,31 @@ import java.util.Objects;
  * Space Complexity：
  */
 class Solution61 {
-    public ListNode rotateRight(ListNode head, int k) {
-        if (Objects.isNull(head)) {
+    public ListNode rotateRight1(ListNode head, int k) {
+        if (head == null || head.next == null || k == 0) {
+            return head;
+        }
+        List<ListNode> list = new ArrayList<>();
+        while (head != null) {
+            list.add(head);
+            head = head.next;
+        }
+        k %= list.size();
+        if (k == 0) {
+            return list.get(0);
+        }
+        list.get(list.size() - 1 - k).next = null;
+        list.get(list.size() - 1).next = list.get(0);
+        return list.get(list.size() - k);
+    }
+
+    public ListNode rotateRight2(ListNode head, int k) {
+        if (head == null) {
             return head;
         }
 
         List<ListNode> list = new ArrayList<>();
-        while (Objects.nonNull(head)) {
+        while (head != null) {
             list.add(head);
             head = head.next;
         }

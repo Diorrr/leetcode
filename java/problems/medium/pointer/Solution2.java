@@ -23,9 +23,7 @@ class Solution2 {
         l1 = l1 == null ? null : l1.next;
         l2 = l2 == null ? null : l2.next;
 
-        ListNode res = new ListNode(sum % 10, addTwoNumbers(l1, l2));
-
-        return res;
+        return new ListNode(sum % 10, addTwoNumbers(l1, l2));
     }
 
     public ListNode addTwoNumbers1(ListNode l1, ListNode l2) {

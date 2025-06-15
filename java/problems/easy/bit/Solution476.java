@@ -10,6 +10,20 @@ package problems.easy.bit;
 class Solution476 {
     public int findComplement(int num) {
         int res = 0;
+        int ind = 0;
+        while (num != 0) {
+            if (num % 2 == 0) {
+                res += 1 << ind;
+            }
+            num /= 2;
+            ind++;
+        }
+
+        return res;
+    }
+
+    public int findComplement2(int num) {
+        int res = 0;
         long toAdd = 1;
         while (toAdd <= num) {
             if ((num & toAdd) == 0) {

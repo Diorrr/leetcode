@@ -37,12 +37,11 @@ class Solution112 {
         }
     }
 
-    // from the solutions
     public boolean hasPathSum(TreeNode root, int targetSum) {
-        if (Objects.isNull(root)) {
+        if (root == null) {
             return false;
         }
-        if (Objects.isNull(root.left) && Objects.isNull(root.right) && root.val == targetSum) {
+        if (root.left == null && root.right == null && root.val == targetSum) {
             return true;
         }
 
