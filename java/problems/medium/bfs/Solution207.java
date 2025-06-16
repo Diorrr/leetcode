@@ -1,8 +1,10 @@
 package problems.medium.bfs;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Queue;
 
 /**
@@ -55,16 +57,14 @@ class Solution207 {
     }
 
     public boolean canFinish1(int numCourses, int[][] prerequisites) {
-        List<Integer>[] graph = new List[numCourses];
+        Map<Integer, List<Integer>> graph = new HashMap<>();
         int[] degree = new int[numCourses];
         Queue<Integer> queue = new LinkedList<>();
 
         for (int[] prerequisite : prerequisites) {
-            if (graph[prerequisite[1]] == null) {
-                graph[prerequisite[1]] = new ArrayList<>();
-            }
+            graph.putIfAbsent(prerequisite[1], new ArrayList<>());
+            graph.get(prerequisite[1]).add(prerequisite[0]);
             degree[prerequisite[0]]++;
-            graph[prerequisite[1]].add(prerequisite[0]);
         }
 
         for (int i = 0; i < degree.length; i++) {
@@ -76,13 +76,11 @@ class Solution207 {
 
         while (!queue.isEmpty()) {
             int from = queue.poll();
-            if (graph[from] != null) {
-                for (Integer to : graph[from]) {
-                    degree[to]--;
-                    if (degree[to] == 0) {
-                        numCourses--;
-                        queue.add(to);
-                    }
+            for (Integer to : graph.getOrDefault(from, List.of())) {
+                degree[to]--;
+                if (degree[to] == 0) {
+                    numCourses--;
+                    queue.add(to);
                 }
             }
         }

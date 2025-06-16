@@ -2,6 +2,9 @@ package problems.medium.dfs;
 
 import util.TreeNode;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  * Problem: <a href="https://leetcode.com/problems/kth-smallest-element-in-a-bst">
@@ -54,5 +57,21 @@ class Solution230 {
         values[root.val]++;
         dfs(root.left);
         dfs(root.right);
+    }
+
+    public int kthSmallest2(TreeNode root, int k) {
+        List<Integer> values = new ArrayList<>();
+        dfs(root, values);
+        values.sort(Integer::compareTo);
+        return values.get(k - 1);
+    }
+
+    private void dfs(TreeNode root, List<Integer> values) {
+        if (root == null) {
+            return;
+        }
+        values.add(root.val);
+        dfs(root.left, values);
+        dfs(root.right, values);
     }
 }

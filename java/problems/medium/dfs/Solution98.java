@@ -5,7 +5,8 @@ import util.TreeNode;
 import java.util.Stack;
 
 /**
- * Problem: https://leetcode.com/problems/validate-binary-search-tree/description/
+ * Problem: <a href="https://leetcode.com/problems/validate-binary-search-tree">
+ * validate-binary-search-tree</a>
  * Time Complexity:
  * Space Complexity：
  */
@@ -45,6 +46,6 @@ class Solution98 {
             return false;
         }
 
-        return check(root.left, min, root.val) || check(root.right, root.val, max);
+        return check(root.left, min, root.val) && check(root.right, root.val, max);
     }
 }

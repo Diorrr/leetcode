@@ -15,20 +15,22 @@ class Solution22 {
     List<String> res = new ArrayList<>();
 
     public List<String> generateParenthesis(int n) {
-        backtrack(n, "", 0, 0);
+        backtrack(n, new char[2 * n], 0, 0);
         return res;
     }
 
-    private void backtrack(int n, String s, int open, int close) {
+    private void backtrack(int n, char[] s, int open, int close) {
         if (open == n && close == n) {
-            res.add(s);
+            res.add(new String(s));
             return;
         }
         if (open < n) {
-            backtrack(n, s + "(", open + 1, close);
+            s[open + close] = '(';
+            backtrack(n, s, open + 1, close);
         }
         if (open > close) {
-            backtrack(n, s + ")", open, close + 1);
+            s[open + close] = ')';
+            backtrack(n, s, open, close + 1);
         }
     }
 

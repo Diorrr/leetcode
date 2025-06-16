@@ -6,15 +6,17 @@ import java.util.List;
 import java.util.Queue;
 
 /**
- * Problem: https://leetcode.com/problems/course-schedule-ii/description/
+ * Problem: <a href="https://leetcode.com/problems/course-schedule-ii">
+ * course-schedule-ii</a>
  * Time Complexity:
  * Space Complexity：
  */
 class Solution210 {
     public int[] findOrder(int numCourses, int[][] prerequisites) {
-        List<Integer> res = new ArrayList<>();
-        List<List<Integer>> graph = new ArrayList<>(numCourses);
+        int index = 0;
+        int[] res = new int[numCourses];
         int[] degree = new int[numCourses];
+        List<List<Integer>> graph = new ArrayList<>(numCourses);
         Queue<Integer> queue = new LinkedList<>();
 
         for (int i = 0; i < numCourses; i++) {
@@ -28,22 +30,21 @@ class Solution210 {
         for (int i = 0; i < degree.length; i++) {
             if (degree[i] == 0) {
                 queue.add(i);
-                res.add(i);
+                res[index++] = i;
             }
         }
 
         while (!queue.isEmpty()) {
             int from = queue.poll();
-            for (int i = 0; i < graph.get(from).size(); i++) {
-                int to = graph.get(from).get(i);
+            for (Integer to : graph.get(from)) {
                 degree[to]--;
                 if (degree[to] == 0) {
                     queue.add(to);
-                    res.add(to);
+                    res[index++] = to;
                 }
             }
         }
 
-        return res.size() == numCourses ? res.stream().mapToInt(Integer::intValue).toArray() : new int[0];
+        return index == numCourses ? res : new int[0];
     }
 }

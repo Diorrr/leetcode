@@ -1,25 +1,23 @@
 package problems.medium.arrays;
 
 /**
- * Problem: https://leetcode.com/problems/find-peak-element/
+ * Problem: <a href="https://leetcode.com/problems/find-peak-element">
+ * find-peak-element</a>
  * Time Complexity: O(N)
  * Space Complexity： O(1)
  */
 class Solution162 {
     public int findPeakElement(int[] nums) {
-        if (nums == null) {
-            return -1;
-        } else if (nums.length == 1 || nums[0] > nums[1]) {
+        if (nums.length == 1 || nums[0] > nums[1]) {
             return 0;
         } else if (nums[nums.length - 2] < nums[nums.length - 1]) {
             return nums.length - 1;
         }
-        int l = 0, r = nums.length - 1;
+        int l = 0;
+        int r = nums.length - 1;
         while (l <= r) {
             int m = l + (r - l) / 2;
-            if (m == nums.length - 1 && nums[m - 1] < nums[m]) {
-                return m;
-            } else if (nums[m - 1] < nums[m] && nums[m] > nums[m + 1]) {
+            if ((m == nums.length - 1 || nums[m] > nums[m + 1]) && nums[m - 1] < nums[m]) {
                 return m;
             }
 

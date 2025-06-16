@@ -11,9 +11,12 @@ import java.util.List;
  */
 class Solution17 {
     List<String> res = new ArrayList<>();
+    List<String> mapping = List.of(
+            "", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"
+    );
 
     public List<String> letterCombinations(String digits) {
-        if (digits.length() == 0) {
+        if (digits.isEmpty()) {
             return res;
         }
         backtrack(digits, 0, new StringBuilder());
@@ -26,20 +29,10 @@ class Solution17 {
             return;
         }
         int digit = digits.charAt(index) - '0';
-        char startChar;
-        if (digit < 7) {
-            startChar = (char) ('a' + (digit - 2) * 3);
-        } else if (digit == 7) {
-            startChar = 'p';
-            backtrack(digits, index + 1, new StringBuilder(combination).append((char) (startChar + 3)));
-        } else if (digit == 8) {
-            startChar = 't';
-        } else {
-            startChar = 'w';
-            backtrack(digits, index + 1, new StringBuilder(combination).append((char) (startChar + 3)));
+        for (int i = 0; i < mapping.get(digit).length(); i++) {
+            combination.append(mapping.get(digit).charAt(i));
+            backtrack(digits, index + 1, combination);
+            combination.deleteCharAt(combination.length() - 1);
         }
-        backtrack(digits, index + 1, new StringBuilder(combination).append(startChar));
-        backtrack(digits, index + 1, new StringBuilder(combination).append((char) (startChar + 1)));
-        backtrack(digits, index + 1, new StringBuilder(combination).append((char) (startChar + 2)));
     }
 }

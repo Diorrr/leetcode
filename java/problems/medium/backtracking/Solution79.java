@@ -40,19 +40,18 @@ class Solution79 {
         return false;
     }
 
-    int[] dir = {-1, 0, 0, -1, 0, 1, 1, 0};
+    int[][] directions = {{-1, 0}, {0, -1}, {0, 1}, {1, 0}};
 
     public boolean exist1(char[][] board, String word) {
-        boolean[][] used = new boolean[board.length][board[0].length];
         char[] wordChars = word.toCharArray();
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[i].length; j++) {
                 if (word.charAt(0) == board[i][j]) {
+                    boolean[][] used = new boolean[board.length][board[0].length];
                     used[i][j] = true;
                     if (backtrack(board, wordChars, 0, used, i, j)) {
                         return true;
                     }
-                    used[i][j] = false;
                 }
             }
         }
@@ -61,12 +60,15 @@ class Solution79 {
     }
 
     private boolean backtrack(char[][] board, char[] word, int index, boolean[][] used, int x, int y) {
-        if (index + 1 == word.length) {
+        if (index >= word.length) {
             return false;
         }
-        for (int k = 0; k < dir.length; k += 2) {
-            int newX = x + dir[k];
-            int newY = y + dir[k + 1];
+        if (index == word.length - 1) {
+            return board[x][y] == word[index];
+        }
+        for (int[] dir : directions) {
+            int newX = x + dir[0];
+            int newY = y + dir[1];
             if (newX >= 0 && newX < board.length && newY >= 0 && newY < board[0].length) {
                 if (!used[newX][newY] && board[newX][newY] == word[index + 1]) {
                     used[newX][newY] = true;

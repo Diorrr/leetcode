@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Problem: <a href="https://leetcode.com/problems/reverse-nodes-in-k-group">
  * reverse-nodes-in-k-group</a>
- * Time Complexity:
+ * Time Complexity: O(N)
  * Space Complexity：
  */
 class Solution25 {
@@ -19,30 +19,18 @@ class Solution25 {
             list.add(head);
             head = head.next;
         }
-        ListNode[] arr = list.toArray(new ListNode[0]);
-        for (int i = 0; i + k <= arr.length; i += k) {
+        for (int i = 0; i + k <= list.size(); i += k) {
             int left = i;
             int right = i + k - 1;
             while (left < right) {
-                var temp = arr[left];
-                arr[left] = arr[right];
-                arr[right] = temp;
+                var temp = list.get(left).val;
+                list.get(left).val = list.get(right).val;
+                list.get(right).val = temp;
                 left++;
                 right--;
             }
-            if (i > 0) {
-                arr[i - 1].next = arr[i];
-            }
-            for (int j = i; j < i + k - 1; j++) {
-                arr[j].next = arr[j + 1];
-            }
-            if (i + k == arr.length) {
-                arr[arr.length - 1].next = null;
-            } else {
-                arr[i + k - 1].next = arr[i + k];
-            }
         }
 
-        return arr[0];
+        return list.get(0);
     }
 }

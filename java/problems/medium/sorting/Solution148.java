@@ -13,7 +13,6 @@ import util.ListNode;
  * Space Complexity：
  */
 class Solution148 {
-
     public ListNode sortList(ListNode head) {
         if (head == null || head.next == null) {
             return head;
