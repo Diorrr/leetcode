@@ -19,7 +19,20 @@ class Solution50 {
             n = -n;
         }
 
-        return add * calc(x, n);
+        return add * calc2(x, n);
+    }
+
+    public double calc2(double x, int n) {
+        double val = 1;
+        if (n > 0) {
+            val = calc2(x, n / 2);
+            val *= val;
+        }
+        if (n %2 == 1) {
+            val *= x;
+        }
+
+        return val;
     }
 
     public double calc(double x, int n) {

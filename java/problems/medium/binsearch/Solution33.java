@@ -1,7 +1,8 @@
 package problems.medium.binsearch;
 
 /**
- * Problem: https://leetcode.com/problems/search-in-rotated-sorted-array/
+ * Problem: https://leetcode.com/problems/search-in-rotated-sorted-array
+ * search-in-rotated-sorted-array</a>
  * Time Complexity: O(logN)
  * Space Complexity： O(1)
  */
@@ -23,9 +24,8 @@ class Solution33 {
                 r = m;
             }
         }
-        l = binSearch(nums, target, 0, m);
+        l = binSearch(nums, target, 0, m - 1);
         r = binSearch(nums, target, m, nums.length - 1);
-
 
         return Math.max(l, r);
     }

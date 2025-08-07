@@ -11,7 +11,7 @@ import java.util.PriorityQueue;
  * Space Complexity：
  */
 class Solution295 {
-    static class MedianFinder {
+    class MedianFinder {
         PriorityQueue<Integer> large;
         PriorityQueue<Integer> small;
         boolean isEven = true;

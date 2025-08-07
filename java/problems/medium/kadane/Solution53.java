@@ -1,4 +1,4 @@
-package problems.medium.dp;
+package problems.medium.kadane;
 
 /**
  * Problem: <a href="https://leetcode.com/problems/maximum-subarray">
