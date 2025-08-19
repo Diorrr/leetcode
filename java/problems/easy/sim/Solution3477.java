@@ -20,8 +20,4 @@ class Solution3477 {
         }
         return res;
     }
-
-    public static void main(String[] args) {
-
-    }
 }

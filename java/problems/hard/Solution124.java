@@ -70,7 +70,7 @@ class Solution124 {
     Deque<TreeNode> allNodes(TreeNode root) {
         Deque<TreeNode> res = new LinkedList<>();
         if (root != null) {
-            Stack<TreeNode> stack = new Stack<>();
+            Deque<TreeNode> stack = new LinkedList<>();
             stack.push(root);
             while (!stack.isEmpty()) {
                 TreeNode curr = stack.pop();
