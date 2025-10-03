@@ -9,7 +9,7 @@ class Solution190 {
     public int reverseBits(int n) {
         int res = 0;
         for (int i = 0; i < 32; i++) {
-            res += (1L << (31-i)) * (((n & (1L << i)) != 0) ? 1 : 0);
+            res += (1L << (31 - i)) * (((n & (1L << i)) != 0) ? 1 : 0);
         }
 
         return res;
