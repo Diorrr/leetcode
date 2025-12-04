@@ -3,12 +3,10 @@ package problems.aoc25;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.concurrent.atomic.AtomicLong;
 
 /**
- * Problem: <a href="https://adventofcode.com/2025/day/2">
- * day2</a>
+ * Problem: <a href="https://adventofcode.com/2025/day/3">
+ * day3</a>
  * Time Complexity:
  * Space Complexity：
  */
