@@ -23,7 +23,7 @@ class SolutionDay5 {
             String line;
             // read line by line until EOF (null)
             while ((line = reader.readLine()) != null) {
-                ranges.add(getInteval(line));
+                ranges.add(getInterval(line));
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -54,7 +54,7 @@ class SolutionDay5 {
             // read line by line until EOF (null)
             while ((line = reader.readLine()) != null) {
                 if (line.contains("-")) {
-                    ranges.add(getInteval(line));
+                    ranges.add(getInterval(line));
                 } else if (!line.isEmpty()) {
                     BigInteger num = new BigInteger(line);
                     if (isAvailable(num, ranges)) {
@@ -68,7 +68,7 @@ class SolutionDay5 {
         System.out.println(res);
     }
 
-    private BigInteger[] getInteval(String line){
+    private BigInteger[] getInterval(String line){
         String[] parts = line.split("-");
         BigInteger start = new BigInteger(parts[0].trim());
         BigInteger end = new BigInteger(parts[1].trim());
