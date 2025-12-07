@@ -13,7 +13,7 @@ import java.util.List;
  * day6</a>
  */
 class SolutionDay6 {
-    void solve1() {
+    private void solve1() {
         List<List<BigInteger>> ranges = new ArrayList<>();
         List<String> operations = new ArrayList<>();
         String fileName = "java/problems/aoc25/input/dat6.txt";
@@ -49,7 +49,7 @@ class SolutionDay6 {
         System.out.println(res);
     }
 
-    void solve2() {
+    private void solve2() {
         List<char[]> grid = new ArrayList<>();
         List<int[]> operations = new ArrayList<>();
         String fileName = "java/problems/aoc25/input/dat6.txt";
