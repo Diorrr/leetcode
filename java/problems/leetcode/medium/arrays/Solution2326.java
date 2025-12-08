@@ -1,6 +1,6 @@
 package problems.leetcode.medium.arrays;
 
-import util.ListNode;
+import problems.leetcode.util.ListNode;
 
 /**
  * Problem: <a href="https://leetcode.com/problems/spiral-matrix-iv">

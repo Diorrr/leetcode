@@ -1,6 +1,6 @@
 package problems.leetcode.medium.graph;
 
-import util.Node;
+import problems.leetcode.util.Node;
 
 /**
  * Problem: <a href="https://leetcode.com/problems/clone-graph">

@@ -1,4 +1,4 @@
-package util;
+package problems.leetcode.util;
 
 public class ListNode {
     public int val;

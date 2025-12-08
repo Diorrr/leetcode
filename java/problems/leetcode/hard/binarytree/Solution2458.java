@@ -1,7 +1,7 @@
 package problems.leetcode.hard.binarytree;
 
 
-import util.TreeNode;
+import problems.leetcode.util.TreeNode;
 
 import java.util.HashMap;
 import java.util.Map;

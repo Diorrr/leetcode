@@ -1,6 +1,6 @@
 package problems.leetcode.medium.bintree;
 
-import util.TreeNode;
+import problems.leetcode.util.TreeNode;
 
 /**
  * Problem: <a href="https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal">

@@ -1,6 +1,6 @@
 package problems.leetcode.medium.pointer;
 
-import util.ListNode;
+import problems.leetcode.util.ListNode;
 
 import java.util.ArrayList;
 import java.util.List;

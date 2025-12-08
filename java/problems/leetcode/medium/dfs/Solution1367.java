@@ -1,8 +1,8 @@
 package problems.leetcode.medium.dfs;
 
 
-import util.ListNode;
-import util.TreeNode;
+import problems.leetcode.util.ListNode;
+import problems.leetcode.util.TreeNode;
 
 /**
  * Problem: <a href="https://leetcode.com/problems/linked-list-in-binary-tree">

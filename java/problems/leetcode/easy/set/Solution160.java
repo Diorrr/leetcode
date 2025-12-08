@@ -1,7 +1,7 @@
 package problems.leetcode.easy.set;
 
 
-import util.ListNode;
+import problems.leetcode.util.ListNode;
 
 import java.util.HashSet;
 import java.util.Set;

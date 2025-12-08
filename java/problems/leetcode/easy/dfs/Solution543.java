@@ -1,6 +1,6 @@
 package problems.leetcode.easy.dfs;
 
-import util.TreeNode;
+import problems.leetcode.util.TreeNode;
 
 /**
  * Problem: <a href="https://leetcode.com/problems/">

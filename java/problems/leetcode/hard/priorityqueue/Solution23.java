@@ -1,6 +1,6 @@
 package problems.leetcode.hard.priorityqueue;
 
-import util.ListNode;
+import problems.leetcode.util.ListNode;
 
 import java.util.ArrayList;
 import java.util.Comparator;

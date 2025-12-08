@@ -1,7 +1,7 @@
 package problems.leetcode.medium.stack;
 
 
-import util.ListNode;
+import problems.leetcode.util.ListNode;
 
 import java.util.Deque;
 import java.util.LinkedList;

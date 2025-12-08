@@ -1,6 +1,6 @@
 package problems.leetcode.medium.hashtable;
 
-import util.ListNode;
+import problems.leetcode.util.ListNode;
 
 import java.util.HashSet;
 import java.util.Set;

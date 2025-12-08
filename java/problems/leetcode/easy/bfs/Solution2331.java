@@ -1,7 +1,7 @@
 package problems.leetcode.easy.bfs;
 
 
-import util.TreeNode;
+import problems.leetcode.util.TreeNode;
 
 /**
  * Problem: <a href="https://leetcode.com/problems/evaluate-boolean-binary-tree">

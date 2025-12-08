@@ -1,6 +1,6 @@
 package problems.leetcode.medium.dfs;
 
-import util.TreeNode;
+import problems.leetcode.util.TreeNode;
 
 import java.util.ArrayList;
 import java.util.HashMap;

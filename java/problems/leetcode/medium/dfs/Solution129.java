@@ -1,7 +1,7 @@
 package problems.leetcode.medium.dfs;
 
 
-import util.TreeNode;
+import problems.leetcode.util.TreeNode;
 
 /**
  * Problem: <a href="https://leetcode.com/problems/sum-root-to-leaf-numbers">

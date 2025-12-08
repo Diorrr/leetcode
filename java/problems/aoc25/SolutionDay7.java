@@ -95,8 +95,4 @@ class SolutionDay7 {
         }
         System.out.println(res);
     }
-
-    public static void main(String[] args) {
-        new SolutionDay7().solve1();
-    }
 }

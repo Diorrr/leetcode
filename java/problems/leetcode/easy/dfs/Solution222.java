@@ -1,6 +1,6 @@
 package problems.leetcode.easy.dfs;
 
-import util.TreeNode;
+import problems.leetcode.util.TreeNode;
 
 import java.util.LinkedList;
 import java.util.Queue;

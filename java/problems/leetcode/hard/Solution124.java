@@ -1,6 +1,6 @@
 package problems.leetcode.hard;
 
-import util.TreeNode;
+import problems.leetcode.util.TreeNode;
 
 import java.util.*;
 

@@ -1,7 +1,7 @@
 package problems.leetcode.medium.bfs;
 
 
-import util.TreeNode;
+import problems.leetcode.util.TreeNode;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

@@ -1,7 +1,7 @@
 package problems.leetcode.easy.binsearch;
 
 
-import util.TreeNode;
+import problems.leetcode.util.TreeNode;
 
 /**
  * Problem: <a href="https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree">

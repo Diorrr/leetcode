@@ -1,6 +1,6 @@
 package problems.leetcode.medium.bfs;
 
-import util.TreeNode;
+import problems.leetcode.util.TreeNode;
 
 /**
  * Problem: <a href="https://leetcode.com/problems/count-nodes-equal-to-average-of-subtree">

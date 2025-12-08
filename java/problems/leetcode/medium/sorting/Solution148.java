@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import util.ListNode;
+import problems.leetcode.util.ListNode;
 
 /**
  * Problem: <a href="https://leetcode.com/problems/sort-list">

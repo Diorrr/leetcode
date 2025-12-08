@@ -1,6 +1,6 @@
 package problems.leetcode.medium.dfs;
 
-import util.TreeNode;
+import problems.leetcode.util.TreeNode;
 
 /**
  * Problem: https://leetcode.com/problems/maximum-binary-tree/description/

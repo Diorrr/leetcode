@@ -1,6 +1,6 @@
 package problems.leetcode.medium.math;
 
-import util.ListNode;
+import problems.leetcode.util.ListNode;
 
 import java.math.BigInteger;
 import java.util.ArrayDeque;

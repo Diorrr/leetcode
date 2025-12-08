@@ -1,4 +1,4 @@
-package util;
+package problems.leetcode.util;
 
 import java.util.LinkedList;
 import java.util.Queue;
